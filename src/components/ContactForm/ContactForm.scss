@@ -2,20 +2,22 @@
 
 .ContactForm__input {
 	max-width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	outline: none;
-	padding: 5px 15px;
+	padding: 5px 10px;
 }
 
 .ContactForm__input:focus,
 .ContactForm__input:hover {
-	border: 2px solid rgb(65, 145, 165);
-	box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	// border: 2px solid rgb(65, 145, 165);
+	// box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ContactForm {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	align-items: flex-start;
 	padding: 10px 40px;
 	border: 1px solid grey;
@@ -39,5 +41,11 @@
 }
 
 .Label {
-	padding-bottom: 3px;
+	padding-bottom: 8px;
+}
+
+.ContactForm__inputBox{
+	display: flex;
+	flex-direction: column;
+	margin-right: 50px;
 }

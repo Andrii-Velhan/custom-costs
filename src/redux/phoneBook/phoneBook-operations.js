@@ -1,25 +1,25 @@
 import axios from 'axios';
 import {
-  addContactRequest,
-  addContactSuccess,
-  addContactError,
-  removeContactRequest,
-  removeContactSuccess,
-  removeContactError,
-  fetchContactsRequest,
-  fetchContactsSuccess,
-  fetchContactsError,
+	addContactRequest,
+	addContactSuccess,
+	addContactError,
+	removeContactRequest,
+	removeContactSuccess,
+	removeContactError,
+	fetchContactsRequest,
+	fetchContactsSuccess,
+	fetchContactsError,
 } from './phoneBook-actions';
 
 axios.defaults.baseURL = 'http://localhost:4040';
 
 const fetchContacts = () => dispatch => {
-  dispatch(fetchContactsRequest());
+	dispatch(fetchContactsRequest());
 
-  axios
-    .get('/contacts')
-    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
-    .catch(error => dispatch(fetchContactsError(error)));
+	axios
+		.get('/contacts')
+		.then(({ data }) => dispatch(fetchContactsSuccess(data)))
+		.catch(error => dispatch(fetchContactsError(error)));
 };
 
 //! const fetchContacts with try/catch; async/await :
@@ -35,24 +35,24 @@ const fetchContacts = () => dispatch => {
 //   }
 // };
 
-const addContact = ({ name, number }) => dispatch => {
-  const item = { name, number };
+const addContact = ({ name, number, model, custom_cost, publisher, country }) => dispatch => {
+	const item = { name, number, model, custom_cost, publisher, country };
 
-  dispatch(addContactRequest);
+	dispatch(addContactRequest);
 
-  axios
-    .post('/contacts', item)
-    .then(({ data }) => dispatch(addContactSuccess(data)))
-    .catch(error => dispatch(addContactError(error)));
+	axios
+		.post('/contacts', item)
+		.then(({ data }) => dispatch(addContactSuccess(data)))
+		.catch(error => dispatch(addContactError(error)));
 };
 
 const removeContact = contactId => dispatch => {
-  dispatch(removeContactRequest());
+	dispatch(removeContactRequest());
 
-  axios
-    .delete(`/contacts/${contactId}`)
-    .then(() => dispatch(removeContactSuccess(contactId)))
-    .catch(error => dispatch(removeContactError(error)));
+	axios
+		.delete(`/contacts/${contactId}`)
+		.then(() => dispatch(removeContactSuccess(contactId)))
+		.catch(error => dispatch(removeContactError(error)));
 };
 
 const phoneBookOperations = { fetchContacts, addContact, removeContact };

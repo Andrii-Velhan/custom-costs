@@ -12,7 +12,7 @@ const Logo = () => {
 			classNames="Title-SlideIn"
 			unmountOnExit
 		>
-			<h1 className="Title">Phonebook</h1>
+			<h1 className="Title">Custom</h1>
 		</CSSTransition>
 	);
 };
