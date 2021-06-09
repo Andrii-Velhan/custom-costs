@@ -14,8 +14,6 @@ class ContactForm extends Component {
 		publisher: '',
 		country: '',
 		currency: '',
-		name: '',
-		number: '',
 		message: null,
 	};
 
@@ -33,11 +31,25 @@ class ContactForm extends Component {
 		}, 2500);
 	};
 
-	handleChange = event => {
-		const { name, value } = event.target;
-		this.setState({ [name]: value });
-	};
+	// handleChange = event => {
+	// 	const { name, value } = event.target;
+	// 	this.setState({ [name]: value });
+	// };
 
+	handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+	// handleChange = event => {
+	// 	const { model, custom_cost, publisher, country } = event.target;
+	// 	this.setState({
+	// 		model: { model },
+	// 		custom_cost: { custom_cost },
+	// 		publisher: { publisher },
+	// 		country: {country},
+	// 	});
+	// };
+	
 	setMessage = note => {
 		this.setState({ message: note });
 		setTimeout(() => {
@@ -47,39 +59,41 @@ class ContactForm extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		const { name, number } = this.state;
+		const { model, custom_cost, publisher, country } = this.state;
 
-		if (name === '') {
-			this.setMessage('Enter concact name, please!');
-			return;
-		}
+		// if (publisher === '') {
+		// 	this.setMessage('Enter publisher, please!');
+		// 	return;
+		// }
 
-		if (number === '') {
-			this.setMessage('Enter concact phone number, please!');
-			return;
-		}
+		// if (country === '') {
+		// 	this.setMessage('Enter publisher country, please!');
+		// 	return;
+		// }
 
-		if (name === '' && number === '') {
-			this.setMessage('Enter data to each of inputs: [name & number]!');
-		}
+		// if (model === '' && custom_cost === '') {
+		// 	this.setMessage('Enter data to each of inputs: [model & custom cost]!');
+		// }
 
-		if (
-			this.props.items.find(
-				item => item.name.toLowerCase() === name.toLowerCase(),
-			)
-		) {
-			this.setMessage(`Contact ${name} is аlready exists!`);
-			return;
-		}
-		this.props.onSubmit(name, number);
+		// if (
+		// 	this.props.items.find(
+		// 		item => item.publisher.toLowerCase() === publisher.toLowerCase(),
+		// 	)
+		// ) {
+		// 	this.setMessage(`Contact ${publisher} is аlready exists!`);
+		// 	return;
+		// }
+		this.props.onSubmit( model, custom_cost, publisher, country);
 		this.setState({
-			name: '',
-			number: '',
+			model: '',
+			custom_cost: '',
+			publisher: '',
+			country: '',
 		});
 	};
 
 	render() {
-		const { data, name, number, message } = this.state;
+		const { data, message } = this.state;
 		console.log(data);
 		console.log(data.publishers_list);
 		return (
@@ -95,8 +109,8 @@ class ContactForm extends Component {
 							key="cost_models"
 							className="ContactForm__input custom-select"
 							id="cost_models"
-							onChange={this.handleChange}
-							onSelect="bindDropDowns()">
+							// onChange={this.handleChange}
+							onSelect={this.handleChange}>
 							{data.cost_models.map(({ key, value }) => (
 								<option key={key}>{value}</option>)
 							)}
@@ -111,8 +125,7 @@ class ContactForm extends Component {
 							className="ContactForm__input custom-select"
 							id="custom_costs"
 							onChange={this.handleChange}
-							onSelect="bindDropDowns()"
-						>
+							onSelect="bindDropDowns()">
 							{data.custom_costs.map(({ id, value }) => (
 								<option key={id}>{value}</option>)
 							)}
@@ -127,8 +140,7 @@ class ContactForm extends Component {
 							className="ContactForm__input custom-select"
 							id="publishers_list"
 							onChange={this.handleChange}
-							onSelect="bindDropDowns()"
-						>
+							onSelect="bindDropDowns()">
 							{data.publishers_list.map(({ id, name }) => (
 								<option key={id}>{name}</option>)
 							)}
@@ -143,15 +155,14 @@ class ContactForm extends Component {
 							className="ContactForm__input custom-select"
 							id="countries"
 							onChange={this.handleChange}
-							onSelect="bindDropDowns()"
-						>
+							onSelect="bindDropDowns()">
 							{data.countries.map(({ code, name }) => (
 								<option key={code}>{name}</option>)
 							)}
 						</select></div>
 
 
-					<div className="ContactForm__inputBox"><label className="Label" htmlFor="name">
+					{/* <div className="ContactForm__inputBox"><label className="Label" htmlFor="name">
 						Name
           </label>
 						<input
@@ -181,11 +192,11 @@ class ContactForm extends Component {
 							onChange={this.handleChange}
 							placeholder="+38 (066) 000-00-00"
 						/>
-					</div>
+					</div> */}
 
 
 					<button type="submit" className="ContactForm__button">
-						Add contact
+						Add
           </button>
 				</form>
 			</>
@@ -199,15 +210,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	onSubmit: (
-		name,
-		number,
 		model,
 		custom_cost,
 		publisher,
 		country) =>
 		dispatch(phoneBookOperations.addContact({
-			name,
-			number,
 			model,
 			custom_cost,
 			publisher,

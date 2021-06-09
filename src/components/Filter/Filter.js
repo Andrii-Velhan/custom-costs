@@ -14,7 +14,7 @@ const Filter = ({ value, onChangeFilter, onClearFilter, items }) => (
 	>
 		<div className="filterForm">
 			<label htmlFor="find" className="Label filterLabel">
-				Find contact by name
+				Find cost by ...?
       </label>
 			<input
 				type="text"

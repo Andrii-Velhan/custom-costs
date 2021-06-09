@@ -21,11 +21,12 @@ const getFilter = state => state.phoneBook.filter;
 const getVisibleContacts = createSelector(
   [getAllItems, getFilter],
   (items, filter) => {
-    const normalizedFilter = filter.toLowerCase();
+		let list = items;
+    // const normalizedFilter = filter.toLowerCase();
 
-    let list = items.filter(({ name }) =>
-      name.toLowerCase().includes(normalizedFilter),
-    );
+    // let list = items.filter(({ model }) =>
+		// model.toLowerCase().includes(normalizedFilter),
+    // );
 
     return list;
   },
