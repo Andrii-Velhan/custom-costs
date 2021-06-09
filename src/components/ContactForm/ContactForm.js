@@ -31,14 +31,14 @@ class ContactForm extends Component {
 		}, 2500);
 	};
 
-	// handleChange = event => {
-	// 	const { name, value } = event.target;
-	// 	this.setState({ [name]: value });
-	// };
+	handleChange = event => {
+		const { name, value } = event.target;
+		this.setState({ [name]: value });
+	};
 
-	handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+	// handleChange(event) {
+  //   this.setState({value: event.target.value});
+  // }
 
 	// handleChange = event => {
 	// 	const { model, custom_cost, publisher, country } = event.target;
