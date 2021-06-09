@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import 'modern-normalize/modern-normalize.css';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Container from './components/Container';
+import Spinner from '../src/components/Spinner';
+import ContactList from './components/ContactList';
+import ContactForm from './components/ContactForm';
+import Filter from './components/Filter';
+import Logo from './components/Logo';
+import { connect } from 'react-redux';
+import {
+  phoneBookOperations,
+  phoneBookSelectors,
+} from '../src/redux/phoneBook';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
+  render() {
+    return (
+      <Container>
+        <Logo />
+
+        <ContactForm />
+
+        <Filter />
+
+        {this.props.isLoadingContacts && <Spinner />}
+
+        <ContactList />
+      </Container>
+    );
+  }
 }
 
-export default App;
+App.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+};
+
+const mapStateToProps = state => ({
+  items: phoneBookSelectors.getAllItems(state),
+  isLoadingContacts: phoneBookSelectors.getLoading(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(phoneBookOperations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

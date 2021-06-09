@@ -3,22 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "concurrently": "^6.0.2",
+    "json-server": "^0.16.3",
     "modern-normalize": "^1.1.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^4.0.0",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"npm run start-json-server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-		"predeploy": "npm run build",
-    "deploy": "netlify deploy -p"
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p",
+    "start-json-server": "json-server --port 4040 --delay 300 --watch db.json"
   },
   "eslintConfig": {
     "extends": [
