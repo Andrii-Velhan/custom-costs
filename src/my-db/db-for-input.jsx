@@ -3,21 +3,21 @@ let publishers_list = [{
 	'currency': 'USD',
 	'id': 23
 },
-	{
-		name: 'publisher2',
-		'currency': 'EUR',
-		'id': 45
-	},
-	{
-		name: 'publisher3',
-		'currency': 'EUR',
-		'id': 41
-	},
-	{
-		name: 'publisher3',
-		'currency': 'EUR',
-		'id': 41
-	}];
+{
+	name: 'publisher2',
+	'currency': 'EUR',
+	'id': 45
+},
+{
+	name: 'publisher3',
+	'currency': 'EUR',
+	'id': 41
+},
+{
+	name: 'publisher3',
+	'currency': 'EUR',
+	'id': 41
+}];
 
 let custom_costs = [
 	{

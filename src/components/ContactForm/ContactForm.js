@@ -9,7 +9,7 @@ import MyDb from '../../my-db/db-for-input';
 class ContactForm extends Component {
 	state = {
 		data: MyDb,
-		model: '',
+		model: 'CPA',
 		custom_cost: '',
 		publisher: '',
 		country: '',
@@ -86,17 +86,17 @@ class ContactForm extends Component {
 			<>
 				<Notification message={message} />
 				<form className="ContactForm" onSubmit={this.handleSubmit}>
-					{/* <div>
-					{['Model', 'Custom Cost', 'Publisher', 'Country'].map(key => (
-						<select key={key}>
-							{data.map(({ [key]: value }) => <option key={value}>{value}</option>)}
-						</select>
-					))}
-				</div> */}
+
 					<div className="ContactForm__inputBox"><label htmlFor="cost_models" className="Label">
 						Model
 						</label>
-						<select value={this.state.model} key="cost_models" className="ContactForm__input custom-select" id="cost_models" onSelect={this.handleChange}>
+						<select
+							// value={this.state.model}
+							key="cost_models"
+							className="ContactForm__input custom-select"
+							id="cost_models"
+							onChange={this.handleChange}
+							onSelect="bindDropDowns()">
 							{data.cost_models.map(({ key, value }) => (
 								<option key={key}>{value}</option>)
 							)}
@@ -106,7 +106,13 @@ class ContactForm extends Component {
 						Custom Cost
 						</label>
 
-						<select value={this.state.custom_cost} className="ContactForm__input custom-select" id="custom_costs" onSelect={this.handleChange}>
+						<select
+							// value={this.state.custom_cost}
+							className="ContactForm__input custom-select"
+							id="custom_costs"
+							onChange={this.handleChange}
+							onSelect="bindDropDowns()"
+						>
 							{data.custom_costs.map(({ id, value }) => (
 								<option key={id}>{value}</option>)
 							)}
@@ -116,7 +122,13 @@ class ContactForm extends Component {
 						Publisher
 						</label>
 
-						<select value={this.state.publisher} className="ContactForm__input custom-select" id="publishers_list" onChange={this.handleChange}>
+						<select
+							// value={this.state.publisher}
+							className="ContactForm__input custom-select"
+							id="publishers_list"
+							onChange={this.handleChange}
+							onSelect="bindDropDowns()"
+						>
 							{data.publishers_list.map(({ id, name }) => (
 								<option key={id}>{name}</option>)
 							)}
@@ -126,7 +138,13 @@ class ContactForm extends Component {
 						Country
 						</label>
 
-						<select value={this.state.country} className="ContactForm__input custom-select" id="countries" onSelect={this.handleChange}>
+						<select
+							// value={this.state.country}
+							className="ContactForm__input custom-select"
+							id="countries"
+							onChange={this.handleChange}
+							onSelect="bindDropDowns()"
+						>
 							{data.countries.map(({ code, name }) => (
 								<option key={code}>{name}</option>)
 							)}
