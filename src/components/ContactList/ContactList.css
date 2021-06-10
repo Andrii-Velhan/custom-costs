@@ -54,6 +54,10 @@
 	/* text-overflow: ellipsis; */
 }
 
+.List__data{
+	font-weight: bold;
+}
+
 .ContactList__button {
 	margin-left: auto;
 }

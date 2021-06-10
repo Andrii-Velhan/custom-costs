@@ -10,7 +10,7 @@ import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 const ContactList = ({ items, onRemoveContact }) => {
 	return (
 		<TransitionGroup component="ul" className="ContactList">
-			{items.map(({ id, model, custom_cost, publisher, country }) => (
+			{items.map(({ id, model, custom_cost, publisher, country, currency, currency_symbol }) => (
 				<CSSTransition
 					key={id}
 					timeout={250}
@@ -18,16 +18,21 @@ const ContactList = ({ items, onRemoveContact }) => {
 				>
 					<li key={id} className="ContactList__item">
 						<p className="ContactList__name">
-							<span>Model</span><span>{model}</span>
+							<span>Model</span><span className="List__data">{model}</span>
 						</p>
 						<p className="ContactList__name">
-							<span>Custom Cost</span><span>{custom_cost}</span>
+							<span>Custom Cost</span>
+							<div  className="List__data">
+								<span>{custom_cost}</span>
+								<span>{currency}</span>
+								<span>{currency_symbol}</span>
+							</div>
 						</p>
 						<p className="ContactList__name">
-							<span>Publisher</span><span>{publisher}</span>
+							<span>Publisher</span><span className="List__data">{publisher}</span>
 						</p>
 						<p className="ContactList__name">
-							<span>Country</span><span>{country}</span>
+							<span>Country</span><span className="List__data">{country}</span>
 						</p>
 
 						<IconButton

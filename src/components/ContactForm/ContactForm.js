@@ -131,6 +131,7 @@ _onChangeCurrency({value}) {
 			publisher: '',
 			country: '',
 			currency: '',
+			currency_symbol: '',
 		});
 	};
 
@@ -256,12 +257,16 @@ const mapDispatchToProps = dispatch => ({
 		model,
 		custom_cost,
 		publisher,
-		country) =>
+		country,
+		currency,
+		currency_symbol) =>
 		dispatch(phoneBookOperations.addContact({
 			model,
 			custom_cost,
 			publisher,
-			country
+			country,
+			currency,
+			currency_symbol
 		})),
 });
 
