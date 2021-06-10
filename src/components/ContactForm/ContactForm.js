@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Select from 'react-select';
 import './ContactForm.scss';
 import Notification from '../Notification';
 import { connect } from 'react-redux';
@@ -9,7 +10,7 @@ import MyDb from '../../my-db/db-for-input';
 class ContactForm extends Component {
 	state = {
 		data: MyDb,
-		model: 'CPA',
+		model: '',
 		custom_cost: '',
 		publisher: '',
 		country: '',
@@ -31,10 +32,45 @@ class ContactForm extends Component {
 		}, 2500);
 	};
 
-	handleChange = event => {
-		const { name, value } = event.target;
-		this.setState({ [name]: value });
-	};
+// 	handleChange = evt =>{
+// 		const value = evt.target.value;
+// 		this.setState({
+// 			...this.state,
+// 			[evt.target.name]: value
+// 		});
+// 		console.log(evt.target.name, value);
+// }
+_onChangeModel({value}) {
+	console.log(value)
+	this.setState({model: value});
+	}
+	
+_onChangeCustomCosts({value}) {
+	console.log(value)
+	this.setState({custom_cost: value});
+	}
+	
+_onChangePublisher({value}) {
+		console.log(value)
+		this.setState({publisher: value});
+	}
+
+_onChangeCountry({value}) {
+		console.log(value)
+		this.setState({country: value});
+	}
+
+_onChangeCurrency({value}) {
+		console.log(value)
+		this.setState({currency: value});
+	}
+	
+	// handleChange = event => {
+	// 	const { name, value } = event.target;
+	// 	// console.log("new value", event.target.value);
+	// 	this.setState({ [name]: value });
+	// 	console.log(name, value);
+	// };
 
 	// handleChange(event) {
   //   this.setState({value: event.target.value});
@@ -61,7 +97,12 @@ class ContactForm extends Component {
 		event.preventDefault();
 		const { model, custom_cost, publisher, country } = this.state;
 
-		// if (publisher === '') {
+		if (model === '' || model === null) {
+					this.setMessage('Enter model, please!');
+					return;
+				}
+
+		// if (publisher === '' || publisher === null) {
 		// 	this.setMessage('Enter publisher, please!');
 		// 	return;
 		// }
@@ -89,77 +130,106 @@ class ContactForm extends Component {
 			custom_cost: '',
 			publisher: '',
 			country: '',
+			currency: '',
 		});
 	};
 
+	options = [
+		{value: 'foo', label: 'Foo'},
+		{value: 'bar', label: 'Bar'},
+		{value: 'baz', label: 'Baz'}
+	];
+	
+	myOptions = this.state.data.cost_models.map(({ key, value }) => (
+		{label : key, value : value })
+	)	
+
 	render() {
 		const { data, message } = this.state;
-		console.log(data);
-		console.log(data.publishers_list);
+		// console.log(this.myOptions);
 		return (
-			<>
+			<Fragment>
 				<Notification message={message} />
 				<form className="ContactForm" onSubmit={this.handleSubmit}>
 
-					<div className="ContactForm__inputBox"><label htmlFor="cost_models" className="Label">
+					<div className="ContactForm__inputBox">
+						<label htmlFor="cost_models" className="Label">
 						Model
 						</label>
-						<select
+						<Select
 							// value={this.state.model}
+							name="model"
+							isSearchable
+							// defaultInputValue="CPA"
+							placeholder="Any"
 							key="cost_models"
 							className="ContactForm__input custom-select"
 							id="cost_models"
+							onChange={this._onChangeModel.bind(this)}
+							// onSelect={this._onChange.bind(this)}
 							// onChange={this.handleChange}
-							onSelect={this.handleChange}>
-							{data.cost_models.map(({ key, value }) => (
-								<option key={key}>{value}</option>)
-							)}
-						</select></div>
+							// onSelect={this.handleChange}
+							// onSelect="bindDropDowns()"
+							// options={this.myOptions}
+							options={data.cost_models.map(({ key, value }) => (
+								{label : value, value : key })
+							)}							
+						/>
+					</div>
 
-					<div className="ContactForm__inputBox"><label htmlFor="custom_costs" className="Label">
+					<div className="ContactForm__inputBox">
+						<label htmlFor="custom_costs" className="Label">
 						Custom Cost
 						</label>
 
-						<select
+						<Select
 							// value={this.state.custom_cost}
+							name="custom_costs"
+							isSearchable
+							// defaultInputValue="2.30"
+							placeholder=""
 							className="ContactForm__input custom-select"
 							id="custom_costs"
-							onChange={this.handleChange}
-							onSelect="bindDropDowns()">
-							{data.custom_costs.map(({ id, value }) => (
-								<option key={id}>{value}</option>)
+							onChange={this._onChangeCustomCosts.bind(this)}
+							options={data.custom_costs.map(({ value }) => (
+								{label : value, value : value })
 							)}
-						</select></div>
+						/>
+					</div>
 
 					<div className="ContactForm__inputBox"><label htmlFor="custom_costs" className="Label">
 						Publisher
 						</label>
 
-						<select
+						<Select
 							// value={this.state.publisher}
+							name="publisher"
+							isSearchable
+							placeholder="Any"
 							className="ContactForm__input custom-select"
 							id="publishers_list"
-							onChange={this.handleChange}
-							onSelect="bindDropDowns()">
-							{data.publishers_list.map(({ id, name }) => (
-								<option key={id}>{name}</option>)
-							)}
-						</select></div>
+							onChange={this._onChangePublisher.bind(this)}
+							options={data.publishers_list.map(({ id, name }) => (
+								{label : name, value : name })
+							)}	
+						/>
+					</div>
 
 					<div className="ContactForm__inputBox"><label htmlFor="custom_costs" className="Label">
 						Country
 						</label>
 
-						<select
+						<Select
 							// value={this.state.country}
+							name="country"
 							className="ContactForm__input custom-select"
 							id="countries"
-							onChange={this.handleChange}
-							onSelect="bindDropDowns()">
-							{data.countries.map(({ code, name }) => (
-								<option key={code}>{name}</option>)
-							)}
-						</select></div>
+							onChange={this._onChangeCountry.bind(this)}
+							options={data.countries.map(({ code, name }) => (
+								{code : code, label : name, value : name })
+							)}													
+						/>
+					</div>
 
 
 					{/* <div className="ContactForm__inputBox"><label className="Label" htmlFor="name">
@@ -199,7 +269,7 @@ class ContactForm extends Component {
 						Add
           </button>
 				</form>
-			</>
+			</Fragment>
 		);
 	}
 }

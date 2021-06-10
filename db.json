@@ -1,129 +1,25 @@
 {
   "contacts": [
     {
-      "name": "sdsd",
-      "number": "sdsdsd",
-      "id": "sFwuI8t"
-    },
-    {
-      "name": "22",
-      "number": "222",
       "model": "CPA",
       "custom_cost": "",
       "publisher": "",
       "country": "",
-      "id": "x3hsnmt"
-    },
-    {
-      "name": "",
-      "number": "",
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "2BCQNwS"
-    },
-    {
-      "name": "",
-      "number": "",
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "UK8XxH6"
-    },
-    {
-      "name": "",
-      "number": "",
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "Kt7RFSG"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "LSMc07Y"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "hl_wWdi"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "_e06NnE"
+      "id": "4wjfk1d"
     },
     {
       "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
+      "custom_cost": "1",
+      "publisher": "publisher2",
       "country": "",
-      "id": "uTZQbpD"
+      "id": "nBFiF0C"
     },
     {
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "bEiCsIU"
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "uQlC99d"
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "rXdbJ71"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "1N9vG9A"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "Lr6MIX5"
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "SKeAHP9"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "E8Ppom8"
-    },
-    {
-      "model": "",
-      "custom_cost": "",
-      "publisher": "",
-      "country": "",
-      "id": "p_1ZRjJ"
+      "model": "CPC",
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "Afghanistan",
+      "id": "ER0LBqa"
     }
   ]
 }
