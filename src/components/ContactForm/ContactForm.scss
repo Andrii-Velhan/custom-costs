@@ -19,17 +19,33 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: flex-start;
-	padding: 10px 40px;
+	padding:0 0;
 	border: 1px solid grey;
 	border-radius: 3px;
 	box-shadow: 2px 4px 5px rgba(0.5, 0.2, 0.3, 0.2);
 }
+.ContactForm__header{
+	margin-bottom: 30px;
+	width: 100%;
+	height: 70px;
+	padding: 5px 30px;
+	display: flex;
+  justify-content: space-between;
+	align-items: center;
+	background-color: rgb(56, 54, 54);
+}
+
+.ContactForm__Title{
+	color: white;
+}
 
 .ContactForm__button {
 	cursor: pointer;
-	width: 100%;
+	text-decoration: underline;
+	width: 60px;
+	height: 30px;
 	padding: 8px 15px;
-	background-color: $blue;
+	background-color: inherit;
 	color: white;
 	border: none;
 	border-radius: 3px;
@@ -48,4 +64,5 @@
 	display: flex;
 	flex-direction: column;
 	margin-right: 50px;
+	margin-left: 50px;
 }

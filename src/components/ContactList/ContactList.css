@@ -49,6 +49,9 @@
 	flex-direction: column;
 	margin-top: 0;
 	margin-bottom: 0;
+	width: 20%;
+	/* box-sizing: content-box; */
+	/* text-overflow: ellipsis; */
 }
 
 .ContactList__button {

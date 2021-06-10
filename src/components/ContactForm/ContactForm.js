@@ -150,8 +150,15 @@ _onChangeCurrency({value}) {
 		return (
 			<Fragment>
 				<Notification message={message} />
+				
 				<form className="ContactForm" onSubmit={this.handleSubmit}>
-
+					<div className="ContactForm__header">
+						<h1 className="ContactForm__Title">Custom Cost</h1>
+					<button type="submit" className="ContactForm__button">
+						Save
+          </button>					
+				</div>
+								
 					<div className="ContactForm__inputBox">
 						<label htmlFor="cost_models" className="Label">
 						Model
@@ -222,6 +229,9 @@ _onChangeCurrency({value}) {
 						<Select
 							// value={this.state.country}
 							name="country"
+							isSearchable
+							// defaultInputValue="2.30"
+							placeholder="Any"
 							className="ContactForm__input custom-select"
 							id="countries"
 							onChange={this._onChangeCountry.bind(this)}
@@ -230,44 +240,7 @@ _onChangeCurrency({value}) {
 							)}													
 						/>
 					</div>
-
-
-					{/* <div className="ContactForm__inputBox"><label className="Label" htmlFor="name">
-						Name
-          </label>
-						<input
-							type="text"
-							value={name}
-							id="name"
-							className="ContactForm__input"
-							name="name"
-							onChange={this.handleChange}
-							placeholder="Anton Cherny"
-							autoFocus
-						/>
-					</div>
-
-
-					<div className="ContactForm__inputBox"><label className="Label" htmlFor="number">
-						Number
-          </label>
-						<input
-							type="tel"
-							value={number}
-							id="number"
-							className="ContactForm__input"
-							name="number"
-							// pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
-							required
-							onChange={this.handleChange}
-							placeholder="+38 (066) 000-00-00"
-						/>
-					</div> */}
-
-
-					<button type="submit" className="ContactForm__button">
-						Add
-          </button>
+			
 				</form>
 			</Fragment>
 		);

@@ -9,17 +9,24 @@
     },
     {
       "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "",
-      "id": "nBFiF0C"
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "AmericanSamoa",
+      "id": "gVy6b_x"
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "ÅlandIslands",
+      "id": "Pgk6CdO"
     },
     {
       "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher1",
-      "country": "Afghanistan",
-      "id": "ER0LBqa"
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "Algeria",
+      "id": "YWA-IMw"
     }
   ]
 }
