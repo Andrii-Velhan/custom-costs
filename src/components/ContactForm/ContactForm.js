@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 	model: 'CPA',
 	custom_cost: '1',
 	publisher: '',
-	country: false,
+	country: '',
 	code:'',
 	currency: '',
 	currency_symbol: '\uFF04',

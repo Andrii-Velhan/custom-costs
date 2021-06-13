@@ -26,6 +26,42 @@
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 64
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "Spain",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 66
+    },
+    {
+      "model": "CPC",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "ÅlandIslands",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 67
+    },
+    {
+      "model": "RS",
+      "custom_cost": "1",
+      "publisher": "publisher1",
+      "country": "RWANDA",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 68
+    },
+    {
+      "model": "CPC",
+      "custom_cost": "1",
+      "publisher": "publisher3",
+      "country": false,
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 69
     }
   ]
 }
