@@ -53,15 +53,6 @@
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 68
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "1",
-      "publisher": "publisher3",
-      "country": false,
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 69
     }
-  ]
+	 ]
 }
