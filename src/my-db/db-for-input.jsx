@@ -14,9 +14,9 @@ let publishers_list = [{
 	'id': 41
 },
 {
-	name: 'publisher4',
+	name: 'publisher3',
 	'currency': 'EUR',
-	'id': 44
+	'id': 41
 }];
 
 let custom_costs = [

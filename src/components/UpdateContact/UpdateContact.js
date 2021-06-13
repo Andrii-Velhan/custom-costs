@@ -12,8 +12,7 @@ const INITIAL_STATE = {
 	model: 'CPA',
 	custom_cost: '1',
 	publisher: '',
-	country: false,
-	code:'',
+	country: '',
 	currency: '',
 	currency_symbol: '\uFF04',
 	message: null,
@@ -37,6 +36,14 @@ class ContactForm extends Component {
 		}, 2500);
 	};
 
+// 	handleChange = evt =>{
+// 		const value = evt.target.value;
+// 		this.setState({
+// 			...this.state,
+// 			[evt.target.name]: value
+// 		});
+// 		console.log(evt.target.name, value);
+// }
 _onChangeModel({value}) {
 	console.log(value)
 	this.setState({model: value});
@@ -47,9 +54,7 @@ _onChangeCustomCost({value}) {
 	this.setState({custom_cost: value});
 	}
 	
-_onChangePublisher({ value, currency }) {
-	this.setState({ publisher: value });
-	this.setState({ currency: currency });
+_onChangePublisher({value, currency }) {
 	console.log(value, currency)
 	if (currency === 'USD') {
 		this.setState({ currency_symbol: '\uFF04' });
@@ -57,16 +62,44 @@ _onChangePublisher({ value, currency }) {
 	if (currency === 'EUR') {
 		this.setState({ currency_symbol: '\u20AC' });
 	}
+	this.setState({ publisher: value });
+	this.setState({ currency: currency });
+	console.log(this.state.currency_symbol);
 	}
 
-	_onChangeCountry({ code, value }) {
-		let custom_costs = this.state.data.custom_costs;
-		this.setState({ country: value });
-		if (custom_costs.filter(item =>
-			code.includes(item.country))
-			.map(({ value }) => this.setState({ custom_cost: value }))) {}
-	};
+_onChangeCountry({value}) {
+		console.log(value)
+		this.setState({country: value});
+	}
 
+  handleChange = target => {
+    const { name, value } = target;
+		this.setState({ [name]: value });
+		console.log(name, value);
+		console.log(this.state);
+  };
+
+	// handleChange = event => {
+	// 	const { name, value } = event.target;
+	// 	console.log("new value", event.target.value);
+	// 	this.setState({ [name]: value });
+	// 	console.log(name, value);
+	// };
+
+	// handleChange(event) {
+  //   this.setState({value: event.target.value});
+  // }
+
+	// handleChange = event => {
+	// 	const { model, custom_cost, publisher, country } = event.target;
+	// 	this.setState({
+	// 		model: { model },
+	// 		custom_cost: { custom_cost },
+	// 		publisher: { publisher },
+	// 		country: {country},
+	// 	});
+	// };
+	
 	setMessage = note => {
 		this.setState({ message: note });
 		setTimeout(() => {
@@ -88,30 +121,38 @@ _onChangePublisher({ value, currency }) {
 			return;
 		}
 
-		if (country === '' || country === null) {
-			this.setMessage('Enter country, please!');
-			return;
-		}
+		// if (country === '' || country === null) {
+		// 	this.setMessage('Enter publisher country, please!');
+		// 	return;
+		// }
 
 		// if (
 		// 	this.props.items.find(
 		// 		item => item.publisher.toLowerCase() === publisher.toLowerCase(),
 		// 	)
 		// ) {
-		// 	this.setMessage(`This publisher name "${publisher} is аlready exists!`);
+		// 	this.setMessage(`Contact ${publisher} is аlready exists!`);
 		// 	return;
 		// }
 		this.props.onSubmit( model, custom_cost, publisher, country, currency, currency_symbol);
 		this.setState({
 			...INITIAL_STATE
 		});
-		// console.log(this.state);
+		console.log(this.state);
 	};
 
+	options = [
+		{value: 'foo', label: 'Foo'},
+		{value: 'bar', label: 'Bar'},
+		{value: 'baz', label: 'Baz'}
+	];
+	
+	myOptions = this.state.data.cost_models.map(({ key, value }) => (
+		{label : key, value : value })
+	)	
+
 	render() {
-		const { data, message } = this.state;		
-		const uniqueItems = [...new Set(data.publishers_list)];
-		// console.log(uniqueItems);
+		const { data, message } = this.state;
 		// console.log(this.myOptions);
 		return (
 			<Fragment>
@@ -157,13 +198,13 @@ _onChangePublisher({ value, currency }) {
 						</label>
 
 						<Select
-							inputValue={this.state.custom_cost}
+							// value={this.state.custom_cost}
 							name="custom_cost"
 							// isSearchable
-							defaultValue=''
-							defaultInputValue=''
-							// isDisabled
-							placeholder=''
+							defaultValue={this.state.custom_cost}
+							// defaultInputValue="1"
+							// isDisabled 
+							placeholder=""
 							className="ContactForm__input custom-select"
 							id="custom_cost"
 							onChange={this._onChangeCustomCost.bind(this)}
@@ -190,8 +231,7 @@ _onChangePublisher({ value, currency }) {
 							className="ContactForm__input custom-select"
 							id="publisher"
 							onChange={this._onChangePublisher.bind(this)}
-							options={
-								uniqueItems.map(({ id, name, currency }) => (
+							options={data.publishers_list.map(({ id, name, currency }) => (
 								{label : name, value : name, currency : currency })
 							)}	
 						/>
@@ -206,7 +246,7 @@ _onChangePublisher({ value, currency }) {
 							// value={this.state.country}
 							name="country"
 							isSearchable
-							// defaultInputValue={this.state.country}
+							// defaultInputValue="2.30"
 							placeholder="Any"
 							className="ContactForm__input custom-select"
 							id="country"

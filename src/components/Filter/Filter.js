@@ -14,7 +14,7 @@ const Filter = ({ value, onChangeFilter, onClearFilter, items }) => (
 	>
 		<div className="filterForm">
 			<label htmlFor="find" className="Label filterLabel">
-				Find by ...?
+				Find by Country Name
       </label>
 			<input
 				type="text"

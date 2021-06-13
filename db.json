@@ -1,60 +1,31 @@
 {
   "contacts": [
     {
-      "model": "CPC",
+      "model": "CPA",
       "custom_cost": "1",
       "publisher": "publisher2",
-      "country": "Algeria",
-      "id": "YWA-IMw"
+      "country": "ÅlandIslands",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 23
     },
     {
       "model": "CPA",
-      "custom_cost": "2.30",
-      "publisher": "publisher4",
-      "country": "Anguilla",
-      "id": "qlZqbq-"
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "ÅlandIslands",
-      "id": "6v1Hyv4"
-    },
-    {
-      "model": "RS",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
+      "custom_cost": "3.14",
+      "publisher": "publisher1",
       "country": "Ukraine",
-      "id": "fTqQPo-"
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "1",
-      "publisher": "publisher3",
-      "country": "UnitedStates",
-      "id": "VZ5c9P8"
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 38
     },
     {
       "model": "RS",
       "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Yemen",
-      "id": "HJs8JQN"
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher3",
-      "country": "Poland",
-      "id": "2bkk-4F"
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Albania",
-      "id": "5xSb3mf"
+      "publisher": "publisher1",
+      "country": "Spain",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 64
     }
   ]
 }

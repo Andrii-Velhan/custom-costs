@@ -6,8 +6,9 @@ import IconButton from '../IconButton';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 
-const ContactList = ({ items, onRemoveContact }) => {
+const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
 	return (
 		<TransitionGroup component="ul" className="ContactList">
 			{items.map(({ id, model, custom_cost, publisher, country, currency, currency_symbol }) => (
@@ -24,7 +25,6 @@ const ContactList = ({ items, onRemoveContact }) => {
 							<span>Custom Cost</span>
 							<div  className="List__data">
 								<span>{custom_cost}</span>
-								<span>{currency}</span>
 								<span>{currency_symbol}</span>
 							</div>
 						</p>
@@ -35,13 +35,30 @@ const ContactList = ({ items, onRemoveContact }) => {
 							<span>Country</span><span className="List__data">{country}</span>
 						</p>
 
+						<div className="Button_box">
 						<IconButton
 							className="ContactList__button"
 							onClick={() => onRemoveContact(id)}
 							aria-label="Remove Contact"
 						>
-							<DeleteIcon width="12" height="12" fill="#fff" />
+								<DeleteIcon
+									width="12"
+									height="12"
+									fill="#fff"
+								/>
 						</IconButton>
+
+						<IconButton
+							className="ContactList__button"
+							onClick={() => onChangeContact(id)}
+							aria-label="Change Contact">
+								<EditOutlinedIcon									
+									width="12"
+									height="12"
+									fill="#fff"
+								/>
+						</IconButton>
+						</div>
 					</li>
 				</CSSTransition>
 			))}

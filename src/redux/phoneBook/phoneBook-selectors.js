@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 const getAllItems = state => state.phoneBook.items;
 const getLoading = state => state.phoneBook.items;
 const getFilter = state => state.phoneBook.filter;
+const getError = state => state.contacts.error;
 
 // without memoisation:
 // const getVisibleContacts = state => {
@@ -23,7 +24,7 @@ const getVisibleContacts = createSelector(
   (items, filter) => {
 	  const normalizedFilter = filter.toLowerCase();
 
-    let list = items.filter(({ model, custom_cost, publisher, country, currency, currency_symbol }) =>
+    let list = items.filter(({country}) =>
 		(country).toLowerCase().includes(normalizedFilter) 
     );
 
@@ -35,7 +36,8 @@ const phoneBookSelectors = {
   getAllItems,
   getLoading,
   getFilter,
-  getVisibleContacts,
+	getVisibleContacts,
+	getError
 };
 
 export default phoneBookSelectors;

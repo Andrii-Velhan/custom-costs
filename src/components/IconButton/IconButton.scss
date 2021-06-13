@@ -5,14 +5,14 @@
 	margin: 0;
 	padding: 8px;
 	border: none;
-	border-radius: 3px;
+	border-radius: 50%;
 	color: white;
 	font: inherit;
-	background-color: rgba(221, 59, 18, 0.644);
+	background-color: rgba(107, 98, 95, 0.644);
 	cursor: pointer;
 
 	&:focus,
 	&:hover {
-		background-color: red;
+		background-color: rgb(41, 39, 39);
 	}
 }
