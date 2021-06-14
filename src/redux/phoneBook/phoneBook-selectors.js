@@ -1,9 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 const getAllItems = state => state.phoneBook.items;
-const getLoading = state => state.phoneBook.items;
+const getLoading = state => state.phoneBook.loading;
 const getFilter = state => state.phoneBook.filter;
-const getError = state => state.contacts.error;
+const getError = state => state.phoneBook.error;
+// const getShawModal = state => state.phoneBook.showModal;
 
 // without memoisation:
 // const getVisibleContacts = state => {
@@ -32,12 +33,19 @@ const getVisibleContacts = createSelector(
   },
 );
 
+// const getToggleModal = () => {
+// 	[getShawModal] => {
+// 		showModal: !showModal,
+// 	}
+// };
+
 const phoneBookSelectors = {
   getAllItems,
   getLoading,
   getFilter,
 	getVisibleContacts,
-	getError
+	getError,
+	// getToggleModal
 };
 
 export default phoneBookSelectors;

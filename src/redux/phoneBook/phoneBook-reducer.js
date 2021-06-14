@@ -21,7 +21,8 @@ const initialState = {
   items: [],
   filter: '',
   error: '',
-  loading: false,
+	loading: false,
+	// showModal: false,
 };
 
 const items = createReducer(initialState.items, {
@@ -75,9 +76,12 @@ const error = createReducer(initialState.error, {
   [updateContactError]:  (_, { payload }) => payload,
 });
 
+// const showModal = createReducer(initialState.showModal, {  
+// });
 export default combineReducers({
   items,
   filter,
   loading,
-  error,
+	error,
+	// showModal,
 });

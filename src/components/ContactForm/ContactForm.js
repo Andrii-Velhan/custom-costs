@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import MyDb from '../../my-db/db-for-input';
 
+
 const INITIAL_STATE = {
 	data: MyDb,
 	model: 'CPA',
@@ -64,7 +65,8 @@ _onChangePublisher({ value, currency }) {
 		this.setState({ country: value });
 		if (custom_costs.filter(item =>
 			code.includes(item.country))
-			.map(({ value }) => this.setState({ custom_cost: value }))) {}
+			.map(({ value }) => this.setState({ custom_cost: value }))) { }
+		// else {this.setState({ custom_cost: 1 })}
 	};
 
 	setMessage = note => {
@@ -88,7 +90,9 @@ _onChangePublisher({ value, currency }) {
 			return;
 		}
 
-		if (country === '' || country === null) {
+		if (country === ''
+			|| country === null
+			|| country === false) {
 			this.setMessage('Enter country, please!');
 			return;
 		}
@@ -116,7 +120,7 @@ _onChangePublisher({ value, currency }) {
 		return (
 			<Fragment>
 				<Notification message={message} />
-				
+							
 				<form className="ContactForm" onSubmit={this.handleSubmit}>
 					<div className="ContactForm__header">
 						<h1 className="ContactForm__Title">Custom Cost</h1>
@@ -166,10 +170,10 @@ _onChangePublisher({ value, currency }) {
 							placeholder=''
 							className="ContactForm__input custom-select"
 							id="custom_cost"
-							onChange={this._onChangeCustomCost.bind(this)}
-							options={data.custom_costs.map(({ value }) => (
-								{label : value, value : value })
-							)}
+							// onChange={this._onChangeCustomCost.bind(this)}
+							// options={data.custom_costs.map(({ value }) => (
+							// 	{label : value, value : value })
+							// )}
 						/>
 						<span className="currency_icon" value="d">
 							{this.state.currency_symbol}
