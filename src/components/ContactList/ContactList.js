@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ContactList.css';
+import './ContactList.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import IconButton from '../IconButton';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
@@ -32,7 +32,15 @@ const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
 							<span>Publisher</span><span className="List__data">{publisher}</span>
 						</p>
 						<p className="ContactList__name">
-							<span>Country</span><span className="List__data">{country}</span>
+							<div className="Country_box">
+								<span className="ContactList__flag">Flag of { country }</span>
+								<div className="ContactList__name country">
+									<span>Country</span>
+									<span className="List__data">
+										{country}
+									</span>
+								</div>							
+							</div>
 						</p>
 
 						<div className="Button_box">

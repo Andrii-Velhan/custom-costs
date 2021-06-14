@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './PhoneBookPage.scss';
 import Container from '../components/Container';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../redux/phoneBook';
@@ -10,7 +11,6 @@ import ContactForm from '../components/ContactForm';
 import Modal from '../components/Modal';
 // import UpdateContact from '../../componFilterents/UpdateContact';
 import Filter from '../components/Filter';
-import Logo from '../components/Logo';
 import Spinner from '../components/Spinner';
 
 class PhoneBookPage extends Component {	
@@ -32,20 +32,18 @@ class PhoneBookPage extends Component {
 		const { showModal } = this.state;
 		return (
 			<Container>
-				<div className="ContactForm__header">
-				
-				<IconButton onClick={this.toggleModal} aria-label="Добавить todo">
-					<AddIcon width="40" height="40" fill="#fff" />
+				<div className="PhoneBookPage__header">
+					<h1 className="Title">Custom</h1>					
+				<IconButton onClick={this.toggleModal} aria-label="Add custom cost">
+					<AddIcon width="30" height="30" fill="#fff" />
 				</IconButton>
 				
 				</div>
-				
+		
 				{showModal && (
 					<Modal onClose={this.toggleModal} >
 							<ContactForm />
-					</Modal>)}
-				
-        <Logo />        
+					</Modal>)}         
 
 				<Filter />
 

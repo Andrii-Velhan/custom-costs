@@ -2,17 +2,13 @@ import 'modern-normalize/modern-normalize.css';
 import React, { Component, Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
 import PublicRoute from './components/PublicRoute';
-import Container from './components/Container';
 import Spinner from '../src/components/Spinner';
 const PhoneBookPage = lazy(() => import('./pages/PhoneBookPage'));
 
-export default class App extends Component {
-	
-	
-	render() {
-	
+export default class App extends Component {	
+	render() {	
     return (
-			<Container>
+			<>
         <Suspense fallback={Spinner}>
 					<Switch>					
 					<PublicRoute
@@ -22,7 +18,7 @@ export default class App extends Component {
 					</PublicRoute >
           </Switch>
         </Suspense>
-      </Container>
+      </>
     );
   }
 }
