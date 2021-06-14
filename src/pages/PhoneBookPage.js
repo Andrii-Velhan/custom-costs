@@ -9,7 +9,7 @@ import IconButton from '../components/IconButton';
 import ContactList from '../components/ContactList';
 import ContactForm from '../components/ContactForm';
 import Modal from '../components/Modal';
-// import UpdateContact from '../../componFilterents/UpdateContact';
+import UpdateContact from '../components/UpdateContact';
 import Filter from '../components/Filter';
 import Spinner from '../components/Spinner';
 
@@ -51,10 +51,10 @@ class PhoneBookPage extends Component {
 
 				<ContactList />
 				
-				{/* {showModal && (
-					<Modal onClose={toggleModal} >
-							<UpdateContact onSave={toggleModal}/>
-					</Modal>)} */}
+				{showModal && (
+					<Modal onClose={this.toggleModal} >
+							<UpdateContact onSave={this.toggleModal}/>
+					</Modal>)}
 
       </Container>
 		);

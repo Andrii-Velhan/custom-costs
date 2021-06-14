@@ -1,15 +1,6 @@
 {
   "contacts": [
     {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher3",
-      "country": "ÅlandIslands",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 1
-    },
-    {
       "model": "CPC",
       "custom_cost": "1",
       "publisher": "publisher1",
@@ -26,6 +17,42 @@
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 3
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher3",
+      "country": "Nigeria",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 4
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "Spain",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 5
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "ÅlandIslands",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 6
+    },
+    {
+      "model": "CPC",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "ÅlandIslands",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 7
     }
   ]
 }
