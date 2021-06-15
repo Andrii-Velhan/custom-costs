@@ -9,10 +9,10 @@ import IconButton from '../IconButton';
 import ContactList from '../ContactList';
 import ContactForm from '../ContactForm';
 import Modal from '../Modal';
-// import UpdateContact from '../UpdateContact';
+import UpdateContact from '../UpdateContact';
 import Filter from '../Filter';
 import Spinner from '../Spinner';
-class PhoneBookPage extends Component {
+class PhoneBook extends Component {
   state = {
     showModal: false,
   };
@@ -49,20 +49,20 @@ class PhoneBookPage extends Component {
         {this.props.isLoadingContacts && <Spinner />}
 
         <ContactList
-        // onChangeContact={this.toggleModal
+        // onChangeContact={this.toggleModal}
         />
 
-        {/* {showModal && (
+        {showModal && (
           <Modal onClose={this.toggleModal}>
             <UpdateContact onSave={this.toggleModal} />
           </Modal>
-        )} */}
+        )}
       </Container>
     );
   }
 }
 
-PhoneBookPage.propTypes = {
+PhoneBook.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
 };
 
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => ({
   // updateContact: () => dispatch(phoneBookOperations.updateContact()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneBookPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);

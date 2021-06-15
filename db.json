@@ -17,6 +17,42 @@
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 19
+    },
+    {
+      "model": "RS",
+      "custom_cost": "2.30",
+      "publisher": "publisher2",
+      "country": "Spain",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 20
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher3",
+      "country": "Albania",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 21
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher3",
+      "country": "AndorrA",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 22
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "Albania",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 23
     }
   ]
 }
