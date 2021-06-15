@@ -50,11 +50,11 @@ class PhoneBookPage extends Component {
 
         <ContactList onChangeContact={this.toggleModal} />
 
-        {showModal && (
+        {/* {showModal && (
           <Modal onClose={this.toggleModal}>
             <UpdateContact onSave={this.toggleModal} />
           </Modal>
-        )}
+        )} */}
       </Container>
     );
   }
@@ -71,6 +71,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchContacts: () => dispatch(phoneBookOperations.fetchContacts()),
+  // updateContact: () => dispatch(phoneBookOperations.updateContact()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneBookPage);

@@ -46,7 +46,7 @@ const updateContact = contactId => async dispatch => {
   try {
     const { data } = await axios.patch(`/contacts/${contactId}`);
     dispatch(updateContactSuccsess(data));
-    // this.toggleModal();
+    this.toggleModal();
   } catch (error) {
     dispatch(updateContactError(error.message));
   }
