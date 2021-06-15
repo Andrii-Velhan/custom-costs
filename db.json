@@ -35,6 +35,33 @@
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 15
+    },
+    {
+      "model": "RS",
+      "custom_cost": "2.30",
+      "publisher": "publisher2",
+      "country": "Spain",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 16
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "2.30",
+      "publisher": "publisher2",
+      "country": "Spain",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 17
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher1",
+      "country": "Angola",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 18
     }
   ]
 }
