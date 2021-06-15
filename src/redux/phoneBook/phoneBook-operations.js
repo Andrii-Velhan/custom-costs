@@ -1,15 +1,15 @@
 import axios from 'axios';
 import {
-	addContactRequest,
-	addContactSuccess,
-	addContactError,
-	removeContactRequest,
-	removeContactSuccess,
-	removeContactError,
-	fetchContactsRequest,
-	fetchContactsSuccess,
-	fetchContactsError,
-	updateContactRequest,
+  addContactRequest,
+  addContactSuccess,
+  addContactError,
+  removeContactRequest,
+  removeContactSuccess,
+  removeContactError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
+  updateContactRequest,
   updateContactSuccsess,
   updateContactError,
 } from './phoneBook-actions';
@@ -33,48 +33,59 @@ const fetchContacts = () => async dispatch => {
 
   try {
     const { data } = await axios.get('/contacts');
-		dispatch(fetchContactsSuccess(data));
-		// dispatch(fetchContactsSuccess(data.sort((a, b) => parseFloat(a.name) - parseFloat(b.name))));
+    dispatch(fetchContactsSuccess(data));
+    // dispatch(fetchContactsSuccess(data.sort((a, b) => parseFloat(a.name) - parseFloat(b.name))));
   } catch (error) {
     dispatch(fetchContactsError(error.message));
   }
 };
 
-const addContact = ({ model, custom_cost, publisher, country, currency,
-	currency_symbol }) => dispatch => {
-	const item = {model, custom_cost, publisher, country, currency,
-		currency_symbol };
+const updateContact = contactId => async dispatch => {
+  dispatch(updateContactRequest());
 
-	dispatch(addContactRequest);
-
-	axios
-		.post('/contacts', item)
-		.then(({ data }) => dispatch(addContactSuccess(data)))
-		.catch(error => dispatch(addContactError(error.message)));
-	};
-
-const updateContact = ({ model, custom_cost, publisher, country, currency,
-	currency_symbol }) => dispatch => {
-	const item = {model, custom_cost, publisher, country, currency,
-		currency_symbol };
-
-	dispatch(updateContactRequest);
-
-	axios
-		.patch('/contacts', item)
-		.then(({ data }) => dispatch(updateContactSuccsess(data)))
-		.catch(error => dispatch(updateContactError(error.message)));
-	};	
-
-const removeContact = contactId => dispatch => {
-	dispatch(removeContactRequest());
-
-	axios
-		.delete(`/contacts/${contactId}`)
-		.then(() => dispatch(removeContactSuccess(contactId)))
-		.catch(error => dispatch(removeContactError(error.message)));
+  try {
+    const { data } = await axios.patch(`/contacts/${contactId}`);
+    dispatch(updateContactSuccsess(data));
+    // this.toggleModal();
+  } catch (error) {
+    dispatch(updateContactError(error.message));
+  }
 };
 
-const phoneBookOperations = { fetchContacts, addContact, removeContact, updateContact };
+const addContact =
+  ({ model, custom_cost, publisher, country, currency, currency_symbol }) =>
+  dispatch => {
+    const item = {
+      model,
+      custom_cost,
+      publisher,
+      country,
+      currency,
+      currency_symbol,
+    };
+
+    dispatch(addContactRequest);
+
+    axios
+      .post('/contacts', item)
+      .then(({ data }) => dispatch(addContactSuccess(data)))
+      .catch(error => dispatch(addContactError(error.message)));
+  };
+
+const removeContact = contactId => dispatch => {
+  dispatch(removeContactRequest());
+
+  axios
+    .delete(`/contacts/${contactId}`)
+    .then(() => dispatch(removeContactSuccess(contactId)))
+    .catch(error => dispatch(removeContactError(error.message)));
+};
+
+const phoneBookOperations = {
+  fetchContacts,
+  addContact,
+  removeContact,
+  updateContact,
+};
 
 export default phoneBookOperations;

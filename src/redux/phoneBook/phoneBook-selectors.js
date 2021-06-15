@@ -4,6 +4,7 @@ const getAllItems = state => state.phoneBook.items;
 const getLoading = state => state.phoneBook.loading;
 const getFilter = state => state.phoneBook.filter;
 const getError = state => state.phoneBook.error;
+// const getItem = state => state.phoneBook.item;
 // const getShawModal = state => state.phoneBook.showModal;
 
 // without memoisation:
@@ -23,10 +24,10 @@ const getError = state => state.phoneBook.error;
 const getVisibleContacts = createSelector(
   [getAllItems, getFilter],
   (items, filter) => {
-	  const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filter.toLowerCase();
 
-    let list = items.filter(({country}) =>
-		(country).toLowerCase().includes(normalizedFilter) 
+    let list = items.filter(({ country }) =>
+      country.toLowerCase().includes(normalizedFilter),
     );
 
     return list;
@@ -43,9 +44,10 @@ const phoneBookSelectors = {
   getAllItems,
   getLoading,
   getFilter,
-	getVisibleContacts,
-	getError,
-	// getToggleModal
+  getVisibleContacts,
+  getError,
+  // getItem,
+  // getToggleModal,
 };
 
 export default phoneBookSelectors;

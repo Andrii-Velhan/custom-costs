@@ -133,7 +133,7 @@ class UpdateContact extends Component {
     return (
       <Fragment>
         <Notification message={message} />
-
+        <h2>UPDATE MODAL</h2>
         <form className="ContactForm" onSubmit={this.handleSubmit}>
           <div className="ContactForm__header">
             <h1 className="ContactForm__Title">Custom Cost</h1>

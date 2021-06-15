@@ -129,12 +129,11 @@ class ContactForm extends Component {
   render() {
     const { data, message } = this.state;
     const uniqueItems = [...new Set(data.publishers_list)];
-    // console.log(uniqueItems);
-    // console.log(this.myOptions);
+
     return (
       <Fragment>
         <Notification message={message} />
-
+        <h2>ADD MODAL</h2>
         <form className="ContactForm" onSubmit={this.handleSubmit}>
           <div className="ContactForm__header">
             <h1 className="ContactForm__Title">Custom Cost</h1>
@@ -159,10 +158,6 @@ class ContactForm extends Component {
               className="ContactForm__input custom-select"
               id="model"
               onChange={this._onChangeModel.bind(this)}
-              // onChange={this.handleChange.bind(this)}
-              // onSelect={this.handleChange}
-              // onSelect="bindDropDowns()"
-              // options={this.myOptions}
               options={data.cost_models.map(({ key, value }) => ({
                 label: value,
                 value: key,
