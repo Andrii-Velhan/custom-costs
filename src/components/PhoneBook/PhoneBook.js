@@ -48,9 +48,7 @@ class PhoneBook extends Component {
 
         {this.props.isLoadingContacts && <Spinner />}
 
-        <ContactList
-        // onChangeContact={this.toggleModal}
-        />
+        <ContactList onChangeContact={this.toggleModal} />
 
         {showModal && (
           <Modal onClose={this.toggleModal}>

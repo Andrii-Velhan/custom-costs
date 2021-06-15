@@ -100,7 +100,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onRemoveContact: id => dispatch(phoneBookOperations.removeContact(id)),
-  onChangeContact: id => dispatch(phoneBookOperations.updateContact(id)),
+  // onChangeContact: id => dispatch(phoneBookOperations.updateContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

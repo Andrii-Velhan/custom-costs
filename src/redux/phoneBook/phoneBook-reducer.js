@@ -22,6 +22,7 @@ const initialState = {
   filter: '',
   error: '',
   loading: false,
+  // contactId: '',
   // item: {},
   // showModal: false,
 };
