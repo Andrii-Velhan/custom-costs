@@ -8,20 +8,16 @@ import { Route, Redirect } from 'react-router-dom';
  * - В противном случае рендерит компонент
  */
 export default function PublicRoute({
-	isAuthenticated,
-	redirectTo,
-	children,
-	...routeProps
+  isAuthenticated,
+  redirectTo,
+  children,
+  ...routeProps
 }) {
-	// const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
+  // const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
 
-	return (
-		<Route {...routeProps}>
-			{true && routeProps.restricted ? (
-				<Redirect to={redirectTo} />
-			) : (
-				children
-			)}
-		</Route>
-	);
-};
+  return (
+    <Route {...routeProps}>
+      {true && routeProps.restricted ? <Redirect to={redirectTo} /> : children}
+    </Route>
+  );
+}

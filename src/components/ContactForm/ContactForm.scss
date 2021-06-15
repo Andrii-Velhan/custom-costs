@@ -1,86 +1,86 @@
-@import "../../styles/colors";
+@import '../../styles/colors';
 
 .ContactForm__input {
-	min-width: 150px;
-	margin-bottom: 20px;
-	outline: none;
-	// padding: 5px 10px;
+  min-width: 150px;
+  margin-bottom: 20px;
+  outline: none;
+  // padding: 5px 10px;
 }
 
 .ContactForm__input:focus,
 .ContactForm__input:hover {
-	cursor: pointer;
-	// border: 2px solid rgb(65, 145, 165);
-	// box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  // border: 2px solid rgb(65, 145, 165);
+  // box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ContactForm {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	padding:0 0;
-	border: 1px solid grey;
-	border-radius: 3px;
-	box-shadow: 2px 4px 5px rgba(0.5, 0.2, 0.3, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 0 0;
+  border: 1px solid grey;
+  border-radius: 3px;
+  box-shadow: 2px 4px 5px rgba(0.5, 0.2, 0.3, 0.2);
 }
-.ContactForm__header{
-	margin-bottom: 30px;
-	width: 100%;
-	height: 70px;
-	padding: 5px 30px;
-	display: flex;
+.ContactForm__header {
+  margin-bottom: 30px;
+  width: 100%;
+  height: 70px;
+  padding: 5px 30px;
+  display: flex;
   justify-content: space-between;
-	align-items: center;
-	background-color: rgb(56, 54, 54);
+  align-items: center;
+  background-color: rgb(56, 54, 54);
 }
 
-.ContactForm__Title{
-	color: white;
+.ContactForm__Title {
+  color: white;
 }
 
 .ContactForm__button {
-	cursor: pointer;
-	text-decoration: underline;
-	width: 60px;
-	height: 30px;
-	padding: 8px 15px;
-	background-color: inherit;
-	color: white;
-	border: none;
-	border-radius: 3px;
+  cursor: pointer;
+  text-decoration: underline;
+  width: 60px;
+  height: 30px;
+  padding: 8px 15px;
+  background-color: inherit;
+  color: white;
+  border: none;
+  border-radius: 3px;
 
-	&:focus,
-	&:hover {
-		background-color: $blue-accent;
-	}
+  &:focus,
+  &:hover {
+    background-color: $blue-accent;
+  }
 }
 
 .Label {
-	padding-bottom: 8px;
+  padding-bottom: 8px;
 }
 
-.currency_icon{
-	position: absolute;	
-	bottom: 24px;
-	right: 4px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	// overflow: hidden;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	font-weight: bold;
-	font-size: 20px;
-	color: white;
-	background-color: rgb(173, 170, 170);
+.currency_icon {
+  position: absolute;
+  bottom: 24px;
+  right: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(173, 170, 170);
 }
 
-.ContactForm__inputBox{
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	margin-right: 50px;
-	margin-left: 50px;
+.ContactForm__inputBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  margin-left: 50px;
 }

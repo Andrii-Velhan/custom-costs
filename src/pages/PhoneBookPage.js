@@ -13,52 +13,52 @@ import UpdateContact from '../components/UpdateContact';
 import Filter from '../components/Filter';
 import Spinner from '../components/Spinner';
 
-class PhoneBookPage extends Component {	
-	state = {
+class PhoneBookPage extends Component {
+  state = {
     showModal: false,
-	};
-	
+  };
+
   componentDidMount() {
     this.props.fetchContacts();
-	}
+  }
 
-	toggleModal = () => {
+  toggleModal = () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
-	};
-	
-	render() {
-		const { showModal } = this.state;
-		return (
-			<Container>
-				<div className="PhoneBookPage__header">
-					<h1 className="Title">Custom</h1>					
-				<IconButton onClick={this.toggleModal} aria-label="Add custom cost">
-					<AddIcon width="30" height="30" fill="#fff" />
-				</IconButton>
-				
-				</div>
-		
-				{showModal && (
-					<Modal onClose={this.toggleModal} >
-							<ContactForm />
-					</Modal>)}         
+  };
 
-				<Filter />
+  render() {
+    const { showModal } = this.state;
+    return (
+      <Container>
+        <div className="PhoneBookPage__header">
+          <h1 className="Title">Custom</h1>
+          <IconButton onClick={this.toggleModal} aria-label="Add custom cost">
+            <AddIcon width="30" height="30" fill="#fff" />
+          </IconButton>
+        </div>
+
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <ContactForm />
+          </Modal>
+        )}
+
+        <Filter />
 
         {this.props.isLoadingContacts && <Spinner />}
 
-				<ContactList />
-				
-				{showModal && (
-					<Modal onClose={this.toggleModal} >
-							<UpdateContact onSave={this.toggleModal}/>
-					</Modal>)}
+        <ContactList />
 
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <UpdateContact onSave={this.toggleModal} />
+          </Modal>
+        )}
       </Container>
-		);
-	}
+    );
+  }
 }
 
 PhoneBookPage.propTypes = {
@@ -75,5 +75,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneBookPage);
-
-

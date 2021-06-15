@@ -5,30 +5,30 @@ import './Modal.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ onClose, children }) {
-    useEffect(() => {
-        const handleKeyDown = e => {
-            if (e.code === 'Escape') {
-                onClose();
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [onClose]); // ! useMemo on parrent Component
-
-    const handleBackdropClick = event => {
-        if (event.currentTarget === event.target) {
-            onClose();
-        }
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
     };
 
-    return createPortal(
-        <div className="Modal__backdrop" onClick={handleBackdropClick}>
-            <div className="Modal__content">{children}</div>
-        </div>,
-        modalRoot,
-    );
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]); // ! useMemo on parrent Component
+
+  const handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      onClose();
+    }
+  };
+
+  return createPortal(
+    <div className="Modal__backdrop" onClick={handleBackdropClick}>
+      <div className="Modal__content">{children}</div>
+    </div>,
+    modalRoot,
+  );
 }
