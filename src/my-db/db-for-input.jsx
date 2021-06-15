@@ -43,14 +43,8 @@ let cost_models = [
 ];
 
 let countries = [
-  {
-    name: 'Afghanistan',
-    code: 'AF',
-  },
-  {
-    name: 'ÅlandIslands',
-    code: 'AX',
-  },
+  { name: 'Afghanistan', code: 'AF' },
+  { name: 'ÅlandIslands', code: 'AX' },
   { name: 'Albania', code: 'AL' },
   { name: 'Algeria', code: 'DZ' },
   { name: 'AmericanSamoa', code: 'AS' },

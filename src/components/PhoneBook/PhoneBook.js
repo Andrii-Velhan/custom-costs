@@ -9,7 +9,7 @@ import IconButton from '../IconButton';
 import ContactList from '../ContactList';
 import ContactForm from '../ContactForm';
 import Modal from '../Modal';
-import UpdateContact from '../UpdateContact';
+// import UpdateContact from '../UpdateContact';
 import Filter from '../Filter';
 import Spinner from '../Spinner';
 class PhoneBookPage extends Component {
@@ -48,7 +48,9 @@ class PhoneBookPage extends Component {
 
         {this.props.isLoadingContacts && <Spinner />}
 
-        <ContactList onChangeContact={this.toggleModal} />
+        <ContactList
+        // onChangeContact={this.toggleModal
+        />
 
         {/* {showModal && (
           <Modal onClose={this.toggleModal}>

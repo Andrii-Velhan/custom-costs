@@ -3,65 +3,20 @@
     {
       "model": "CPA",
       "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "ÅlandIslands",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 6
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "Afghanistan",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 10
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "ÅlandIslands",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 14
-    },
-    {
-      "model": "RS",
-      "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "Albania",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 15
-    },
-    {
-      "model": "RS",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 16
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 17
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "1",
       "publisher": "publisher1",
       "country": "Angola",
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 18
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "AndorrA",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 19
     }
   ]
 }

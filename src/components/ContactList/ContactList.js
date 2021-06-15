@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ContactList.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import IconButton from '../IconButton';
-import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import { IconButton } from '@material-ui/core';
+import { Edit, HighlightOff, ExpandMore } from '@material-ui/icons';
+// import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+// import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 
 const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
   return (
@@ -54,19 +55,30 @@ const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
 
               <div className="Button_box">
                 <IconButton
+                  size="small"
                   className="ContactList__button"
                   onClick={() => onRemoveContact(id)}
                   aria-label="Remove Contact"
                 >
-                  <DeleteIcon width="12" height="12" fill="#fff" />
+                  <HighlightOff fill="#fff" />
                 </IconButton>
 
                 <IconButton
+                  size="small"
+                  className="ContactList__button"
+                  onClick={() => {}}
+                  aria-label="Show more"
+                >
+                  <ExpandMore fontSize="small" />
+                </IconButton>
+
+                <IconButton
+                  size="small"
                   className="ContactList__button"
                   onClick={() => onChangeContact(id)}
                   aria-label="Change Contact"
                 >
-                  <EditOutlinedIcon width="12" height="12" fill="#fff" />
+                  <Edit fontSize="medium" fill="#fff" />
                 </IconButton>
               </div>
             </li>
