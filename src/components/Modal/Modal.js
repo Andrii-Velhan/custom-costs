@@ -5,6 +5,7 @@ import './Modal.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ onClose, children }) {
+  // console.log(modalCardID);
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {

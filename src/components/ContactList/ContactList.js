@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import { IconButton } from '@material-ui/core';
 import { Edit, HighlightOff, ExpandMore } from '@material-ui/icons';
-// import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
-// import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 
 const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
   return (
@@ -60,7 +58,7 @@ const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
                   onClick={() => onRemoveContact(id)}
                   aria-label="Remove Contact"
                 >
-                  <HighlightOff fill="#fff" />
+                  <HighlightOff fontSize="small" fill="#fff" />
                 </IconButton>
 
                 <IconButton
@@ -78,7 +76,7 @@ const ContactList = ({ items, onRemoveContact, onChangeContact }) => {
                   onClick={() => onChangeContact(id)}
                   aria-label="Change Contact"
                 >
-                  <Edit fontSize="medium" fill="#fff" />
+                  <Edit fontSize="small" fill="#fff" />
                 </IconButton>
               </div>
             </li>
@@ -96,6 +94,7 @@ ContactList.propTypes = {
 
 const mapStateToProps = state => ({
   items: phoneBookSelectors.getVisibleContacts(state),
+  // modalCardID:
 });
 
 const mapDispatchToProps = dispatch => ({

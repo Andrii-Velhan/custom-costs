@@ -15,20 +15,26 @@ import Spinner from '../Spinner';
 class PhoneBook extends Component {
   state = {
     showModal: false,
+    modalCardID: null,
   };
 
   componentDidMount() {
     this.props.fetchContacts();
   }
 
-  toggleModal = () => {
+  setId = id => {
+    this.setState({ modalCardID: id });
+  };
+
+  toggleModal = id => {
+    console.log(id);
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
   };
 
   render() {
-    const { showModal } = this.state;
+    const { showModal, modalCardID } = this.state;
     return (
       <Container>
         <div className="PhoneBookPage__header">
@@ -50,11 +56,11 @@ class PhoneBook extends Component {
 
         <ContactList onChangeContact={this.toggleModal} />
 
-        {showModal && (
+        {/* {modalCardID && (
           <Modal onClose={this.toggleModal}>
-            <UpdateContact onSave={this.toggleModal} />
+            <UpdateContact />
           </Modal>
-        )}
+        )} */}
       </Container>
     );
   }

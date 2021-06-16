@@ -15,14 +15,13 @@ import {
   updateContactSuccsess,
   updateContactError,
 } from './phoneBook-actions';
-// import { fetchLogoutUserSuccess } from '../userReducer';
 
 const initialState = {
   items: [],
   filter: '',
   error: '',
   loading: false,
-  // contactId: '',
+  modalCardID: null,
   // item: {},
   // showModal: false,
 };
@@ -34,9 +33,9 @@ const items = createReducer(initialState.items, {
     state.filter(({ id }) => id !== payload),
   [updateContactSuccsess]: (state, { payload }) => {
     const index = state.find(({ id }) => id === payload.id);
-    const items = [...state];
-    items[index] = {
-      id: payload,
+    const contacts = [...state];
+    contacts[index] = {
+      id: payload.id,
       model: payload.model,
       custom_cost: payload.custom_cost,
       publisher: payload.publisher,
@@ -45,13 +44,15 @@ const items = createReducer(initialState.items, {
       currency_symbol: payload.currency_symbol,
     };
 
-    return items;
+    return contacts;
   },
-  // [fetchLogoutUserSuccess]: () => [],
 });
 
-// const updateContact = createReducer(initialState.filter, {
+// const updateContact = createReducer(initialState.items, {
 //   [updateContactSuccsess]: (_, { payload }) => payload,
+// });
+
+// const showModal = createReducer(initialState.showModal, {
 // });
 
 const loading = createReducer(initialState.loading, {
@@ -86,8 +87,6 @@ const error = createReducer(initialState.error, {
   [updateContactError]: (_, { payload }) => payload,
 });
 
-// const showModal = createReducer(initialState.showModal, {
-// });
 export default combineReducers({
   items,
   filter,

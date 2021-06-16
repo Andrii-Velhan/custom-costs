@@ -128,6 +128,7 @@ class ContactForm extends Component {
 
   render() {
     const { data, message } = this.state;
+    // const uniqueItems = data.publishers_list.filter(item => item);
     const uniqueItems = [...new Set(data.publishers_list)];
 
     return (
@@ -137,7 +138,11 @@ class ContactForm extends Component {
         <form className="ContactForm" onSubmit={this.handleSubmit}>
           <div className="ContactForm__header">
             <h1 className="ContactForm__Title">Custom Cost</h1>
-            <button type="submit" className="ContactForm__button">
+            <button
+              type="submit"
+              onSubmit={() => {}}
+              className="ContactForm__button"
+            >
               Save
             </button>
           </div>
@@ -205,6 +210,7 @@ class ContactForm extends Component {
               id="publisher"
               onChange={this._onChangePublisher.bind(this)}
               options={uniqueItems.map(({ id, name, currency }) => ({
+                key: id,
                 label: name,
                 value: name,
                 currency: currency,

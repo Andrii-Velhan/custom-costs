@@ -23,8 +23,8 @@ const getError = state => state.phoneBook.error;
 // with memoisation:
 const getVisibleContacts = createSelector(
   [getAllItems, getFilter],
-  (items, filter) => {
-    const normalizedFilter = filter.toLowerCase();
+  (items, fiterValue) => {
+    const normalizedFilter = fiterValue.toLowerCase();
 
     let list = items.filter(({ country }) =>
       country.toLowerCase().includes(normalizedFilter),
