@@ -16,7 +16,34 @@
       "country": "ÅlandIslands",
       "currency": "EUR",
       "currency_symbol": "€",
-      "id": 24
+      "id": 25
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "Ukraine",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 26
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher2",
+      "country": "ÅlandIslands",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 27
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher1",
+      "country": "ÅlandIslands",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 28
     }
   ]
 }

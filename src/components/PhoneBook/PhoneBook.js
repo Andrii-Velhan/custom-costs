@@ -24,10 +24,10 @@ class PhoneBook extends Component {
 
   setId = id => {
     this.setState({ modalCardID: id });
+    console.log(id);
   };
 
   toggleModal = id => {
-    console.log(id);
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
@@ -44,7 +44,7 @@ class PhoneBook extends Component {
           </IconButton>
         </div>
 
-        {showModal && (
+        {showModal && !modalCardID && (
           <Modal onClose={this.toggleModal}>
             <ContactForm />
           </Modal>
@@ -54,13 +54,13 @@ class PhoneBook extends Component {
 
         {this.props.isLoadingContacts && <Spinner />}
 
-        <ContactList onChangeContact={this.toggleModal} />
+        <ContactList onChangeContact={this.setId} />
 
-        {/* {modalCardID && (
+        {modalCardID && (
           <Modal onClose={this.toggleModal}>
             <UpdateContact />
           </Modal>
-        )} */}
+        )}
       </Container>
     );
   }
