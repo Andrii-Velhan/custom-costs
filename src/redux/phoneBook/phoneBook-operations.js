@@ -41,16 +41,27 @@ const fetchContacts = () => async dispatch => {
 };
 
 const updateContact = contactId => async dispatch => {
+  console.log(contactId);
   dispatch(updateContactRequest());
 
   try {
     const { data } = await axios.patch(`/contacts/${contactId}`);
     dispatch(updateContactSuccsess(data));
-    // this.toggleModal();
   } catch (error) {
     dispatch(updateContactError(error.message));
   }
 };
+
+// const updateContact = contact => async dispatch => {
+//   dispatch(updateContactRequest());
+
+//   try {
+//     await axios.patch(contact);
+//     dispatch(updateContactSuccsess(contact));
+//   } catch (error) {
+//     dispatch(updateContactError(error.message));
+//   }
+// };
 
 const addContact =
   ({ model, custom_cost, publisher, country, currency, currency_symbol }) =>

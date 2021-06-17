@@ -25,7 +25,7 @@ const UpdateContact = ({ modalCardID }) => {
     if (loading) return;
     if (items.length > 0) {
       const foundContact = items.find(({ id }) => id === modalCardID);
-      console.log(modalCardID);
+      // console.log(modalCardID);
       // if (!foundContact) {
       //   history.push(paths.CONTACTS);
       // }
@@ -34,12 +34,14 @@ const UpdateContact = ({ modalCardID }) => {
   }, [modalCardID, history, items, loading]);
 
   const handleChange = e => {
-    setContact(prev => ({ ...prev, [e.target.value]: e.target.value }));
+    // console.log(e);
+    setContact(prev => ({ ...prev, [e.value]: e.value }));
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
     await dispach(phoneBookOperations.updateContact(contact));
+    // console.log(contact);
     // history.push(paths.CONTACTS);
   };
 
@@ -57,14 +59,14 @@ const UpdateContact = ({ modalCardID }) => {
   //       ...INITIAL_STATE,
   //     });
   //   };
-  console.log(items);
+  // console.log(items);
   console.log(contact);
   return (
     <Fragment>
       {/* <Notification message={message} /> */}
       <form className="ContactForm" onSubmit={handleSubmit}>
         <div className="ContactForm__header">
-          <h1 className="ContactForm__Title">Custom Cost</h1>
+          <h1 className="ContactForm__Title">Custom Cost: id_{modalCardID}</h1>
           <button type="submit" className="ContactForm__button">
             Save
           </button>
@@ -75,7 +77,7 @@ const UpdateContact = ({ modalCardID }) => {
             Model
           </label>
           <Select
-            value={contact.model}
+            // value={contact.model}
             name="model"
             isSearchable
             // autoFocus
@@ -103,7 +105,7 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            inputValue={contact.custom_cost}
+            // inputValue={contact.custom_cost}
             name="custom_cost"
             // isSearchable
             defaultValue={contact.custom_cost}
@@ -128,7 +130,7 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            value={contact.publisher}
+            // value={contact.publisher}
             name="publisher"
             autoFocus
             isSearchable
@@ -153,7 +155,7 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            value={contact.country}
+            // value={contact.country}
             name="country"
             isSearchable
             defaultValue={contact.country}
