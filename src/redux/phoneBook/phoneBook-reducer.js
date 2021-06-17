@@ -21,7 +21,7 @@ const initialState = {
   filter: '',
   error: '',
   loading: false,
-  modalCardID: null,
+  modalCardID: 19,
   // item: {},
   // showModal: false,
 };
