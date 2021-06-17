@@ -10,24 +10,6 @@
       "id": 19
     },
     {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "ÅlandIslands",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 27
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher3",
-      "country": "Algeria",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 28
-    },
-    {
       "model": "CPC",
       "custom_cost": "2.30",
       "publisher": "publisher1",
@@ -35,6 +17,15 @@
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 29
+    },
+    {
+      "model": "RS",
+      "custom_cost": "2.30",
+      "publisher": "publisher1",
+      "country": "Spain",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 30
     }
   ]
 }

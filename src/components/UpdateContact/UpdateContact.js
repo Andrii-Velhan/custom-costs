@@ -9,17 +9,7 @@ import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import MyDb from '../../my-db/db-for-input';
 
 const UpdateContact = ({ modalCardID }) => {
-  const [contact, setContact] = useState({
-    id: '',
-    model: '',
-    custom_cost: '',
-    publisher: '',
-    country: '',
-    code: '',
-    currency: '',
-    currency_symbol: '\uFF04',
-    // message: null,
-  });
+  const [contact, setContact] = useState({});
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
   // const ID = useParams();
@@ -72,7 +62,6 @@ const UpdateContact = ({ modalCardID }) => {
   return (
     <Fragment>
       {/* <Notification message={message} /> */}
-      <h2>UPDATE MODAL</h2>
       <form className="ContactForm" onSubmit={handleSubmit}>
         <div className="ContactForm__header">
           <h1 className="ContactForm__Title">Custom Cost</h1>
@@ -92,7 +81,7 @@ const UpdateContact = ({ modalCardID }) => {
             // autoFocus
             defaultInputValue={contact.model}
             defaultValue={contact.model}
-            // placeholder="Any"
+            placeholder={contact.model}
             key="model"
             className="ContactForm__input custom-select"
             id="model"
@@ -117,10 +106,10 @@ const UpdateContact = ({ modalCardID }) => {
             inputValue={contact.custom_cost}
             name="custom_cost"
             // isSearchable
-            defaultValue=""
-            defaultInputValue=""
+            defaultValue={contact.custom_cost}
+            defaultInputValue={contact.custom_cost}
             // isDisabled
-            placeholder=""
+            placeholder={contact.custom_cost}
             className="ContactForm__input custom-select"
             id="custom_cost"
             // onChange={this._onChangeCustomCost.bind(this)}
@@ -139,11 +128,13 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            // value={contact.publisher}
+            value={contact.publisher}
             name="publisher"
             autoFocus
             isSearchable
-            placeholder="Any"
+            defaultValue={contact.publisher}
+            defaultInputValue={contact.publisher}
+            placeholder={contact.publisher}
             className="ContactForm__input custom-select"
             id="publisher"
             onChange={handleChange}
@@ -162,11 +153,12 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            // value={contact.country}
+            value={contact.country}
             name="country"
             isSearchable
-            // defaultInputValue={contact.country}
-            placeholder="Any"
+            defaultValue={contact.country}
+            defaultInputValue={contact.country}
+            placeholder={contact.country}
             className="ContactForm__input custom-select"
             id="country"
             onChange={handleChange}
