@@ -35,6 +35,7 @@ const UpdateContact = ({ modalCardID }) => {
     if (loading) return;
     if (items.length > 0) {
       const foundContact = items.find(({ id }) => id === modalCardID);
+      console.log(modalCardID);
       // if (!foundContact) {
       //   history.push(paths.CONTACTS);
       // }
@@ -66,8 +67,8 @@ const UpdateContact = ({ modalCardID }) => {
   //       ...INITIAL_STATE,
   //     });
   //   };
-  console.log(modalCardID);
   console.log(items);
+  console.log(contact);
   return (
     <Fragment>
       {/* <Notification message={message} /> */}
