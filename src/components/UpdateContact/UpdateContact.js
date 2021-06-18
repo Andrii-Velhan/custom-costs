@@ -1,7 +1,6 @@
 import { React, Fragment, useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+// import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Select from 'react-select';
 import './UpdateContact.scss';
 // import Notification from '../Notification';
@@ -9,12 +8,20 @@ import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import MyDb from '../../my-db/db-for-input';
 
 const UpdateContact = ({ modalCardID }) => {
-  const [contact, setContact] = useState({});
+  const [contact, setContact] = useState({
+    id: '',
+    model: '',
+    custom_cost: '',
+    publisher: '',
+    country: '',
+    code: '',
+    currency: '',
+    currency_symbol: '\uFF04',
+    message: null,
+  });
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
   // const ID = useParams();
-  // const ID = { modalCardID };
-  const history = useHistory();
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -31,11 +38,10 @@ const UpdateContact = ({ modalCardID }) => {
       // }
       setContact(foundContact);
     }
-  }, [modalCardID, history, items, loading]);
+  }, [modalCardID, items, loading]);
 
-  const handleChange = e => {
-    // console.log(e);
-    setContact(prev => ({ ...prev, [e.value]: e.value }));
+  const handleChange = (selectedOption, { name }) => {
+    setContact(prev => ({ ...prev, [name]: selectedOption.value }));
   };
 
   const handleSubmit = async e => {

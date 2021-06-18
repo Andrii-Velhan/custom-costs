@@ -11,8 +11,8 @@ const INITIAL_STATE = {
   data: MyDb,
   model: 'CPA',
   custom_cost: '1',
-  publisher: '',
-  country: '',
+  publisher: 'Any',
+  country: 'Any',
   code: '',
   currency: '',
   currency_symbol: '\uFF04',
@@ -59,16 +59,19 @@ class ContactForm extends Component {
     }
   }
 
-  _onChangeCountry({ code, value }) {
+  _onChangeCountry({ value, code }) {
     let custom_costs = this.state.data.custom_costs;
     this.setState({ country: value });
+    console.log(value, code);
     if (
       custom_costs
         .filter(item => code.includes(item.country))
         .map(({ value }) => this.setState({ custom_cost: value }))
     ) {
     }
-    // else {this.setState({ custom_cost: 1 })}
+    // else {
+    //   this.setState({ custom_cost: 1 });
+    // }
   }
 
   setMessage = note => {
@@ -94,12 +97,12 @@ class ContactForm extends Component {
       return;
     }
 
-    if (publisher === '' || publisher === null) {
+    if (publisher === '' || publisher === 'Any' || publisher === null) {
       this.setMessage('Enter publisher, please!');
       return;
     }
 
-    if (country === '' || country === null || country === false) {
+    if (country === '' || country === 'Any' || country === false) {
       this.setMessage('Enter country, please!');
       return;
     }
@@ -151,13 +154,13 @@ class ContactForm extends Component {
               Model
             </label>
             <Select
-              // value={this.state.model}
+              value={this.state.model}
               name="model"
               isSearchable
               // autoFocus
-              defaultInputValue={this.state.model}
-              defaultValue={this.state.model}
-              // placeholder="Any"
+              // defaultInputValue={this.state.model}
+              // defaultValue={this.state.model}
+              placeholder={this.state.model}
               key="model"
               className="ContactForm__input custom-select"
               id="model"
@@ -175,13 +178,13 @@ class ContactForm extends Component {
             </label>
 
             <Select
-              inputValue={this.state.custom_cost}
+              // inputValue={this.state.custom_cost}
               name="custom_cost"
               // isSearchable
               defaultValue=""
               defaultInputValue=""
               // isDisabled
-              placeholder=""
+              placeholder={this.state.custom_cost}
               className="ContactForm__input custom-select"
               id="custom_cost"
               // onChange={this._onChangeCustomCost.bind(this)}
@@ -200,11 +203,14 @@ class ContactForm extends Component {
             </label>
 
             <Select
-              // value={this.state.publisher}
+              value={this.state.publisher}
               name="publisher"
               autoFocus
               isSearchable
-              placeholder="Any"
+              // defaultValue={this.state.publisher}
+              // defaultInputValue={this.state.publisher}
+              placeholder={this.state.publisher}
+              // placeholder="Any"
               className="ContactForm__input custom-select"
               id="publisher"
               onChange={this._onChangePublisher.bind(this)}
@@ -223,11 +229,12 @@ class ContactForm extends Component {
             </label>
 
             <Select
-              // value={this.state.country}
+              value={this.state.country}
               name="country"
               isSearchable
               // defaultInputValue={this.state.country}
-              placeholder="Any"
+              placeholder={this.state.country}
+              // placeholder="Any"
               className="ContactForm__input custom-select"
               id="country"
               onChange={this._onChangeCountry.bind(this)}
