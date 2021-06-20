@@ -1,5 +1,5 @@
 import { React, Fragment, useEffect, useState } from 'react';
-// import { useHistory, useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import './UpdateContact.scss';
@@ -16,12 +16,12 @@ const UpdateContact = ({ modalCardID }) => {
     country: '',
     code: '',
     currency: '',
-    currency_symbol: '\uFF04',
+    currency_symbol: '',
     message: null,
   });
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
-  // const ID = useParams();
+  // const modalCardID = useParams();
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -42,6 +42,12 @@ const UpdateContact = ({ modalCardID }) => {
 
   const handleChange = (selectedOption, { name }) => {
     setContact(prev => ({ ...prev, [name]: selectedOption.value }));
+    // if ([name] === publisher && publisher.pucurrency === 'USD') {
+    //   setContact({ currency_symbol: '\uFF04' });
+    // }
+    // if (currency === 'EUR') {
+    //   this.setState({ currency_symbol: '\u20AC' });
+    // }
   };
 
   const handleSubmit = async e => {
@@ -83,7 +89,7 @@ const UpdateContact = ({ modalCardID }) => {
             Model
           </label>
           <Select
-            // value={contact.model}
+            value={contact.model}
             name="model"
             isSearchable
             // autoFocus
@@ -111,7 +117,7 @@ const UpdateContact = ({ modalCardID }) => {
           </label>
 
           <Select
-            // inputValue={contact.custom_cost}
+            inputValue={contact.custom_cost}
             name="custom_cost"
             // isSearchable
             defaultValue={contact.custom_cost}

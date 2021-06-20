@@ -40,16 +40,25 @@ const fetchContacts = () => async dispatch => {
   }
 };
 
-const updateContact = contactId => async dispatch => {
-  console.log(contactId);
+// const updateContact = contactId => async dispatch => {
+//   console.log(contactId);
+//   dispatch(updateContactRequest());
+
+//   try {
+//     const { data } = await axios.patch(`/contacts/${contactId}`);
+//     dispatch(updateContactSuccsess(contactId));
+//   } catch (error) {
+//     dispatch(updateContactError(error.message));
+//   }
+// };
+
+const updateContact = contactId => dispatch => {
   dispatch(updateContactRequest());
 
-  try {
-    const { data } = await axios.patch(`/contacts/${contactId}`);
-    dispatch(updateContactSuccsess(data));
-  } catch (error) {
-    dispatch(updateContactError(error.message));
-  }
+  axios
+    .patch(`/contacts/${contactId}`)
+    .then(() => dispatch(updateContactSuccsess(contactId)))
+    .catch(error => dispatch(updateContactError(error.message)));
 };
 
 // const updateContact = contact => async dispatch => {
@@ -88,7 +97,7 @@ const removeContact = contactId => dispatch => {
 
   axios
     .delete(`/contacts/${contactId}`)
-    .then(() => dispatch(removeContactSuccess(contactId)))
+    .then(contact => dispatch(removeContactSuccess(contact)))
     .catch(error => dispatch(removeContactError(error.message)));
 };
 

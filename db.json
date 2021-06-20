@@ -26,6 +26,15 @@
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 40
+    },
+    {
+      "model": "RS",
+      "custom_cost": "2.30",
+      "publisher": "publisher2",
+      "country": "Spain",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 41
     }
   ]
 }
