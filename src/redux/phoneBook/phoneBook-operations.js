@@ -57,7 +57,7 @@ const updateContact = contactId => dispatch => {
 
   axios
     .patch(`/contacts/${contactId}`)
-    .then(() => dispatch(updateContactSuccsess(contactId)))
+    .then(contact => dispatch(updateContactSuccsess(contact)))
     .catch(error => dispatch(updateContactError(error.message)));
 };
 
@@ -97,7 +97,7 @@ const removeContact = contactId => dispatch => {
 
   axios
     .delete(`/contacts/${contactId}`)
-    .then(contact => dispatch(removeContactSuccess(contact)))
+    .then(() => dispatch(removeContactSuccess(contactId)))
     .catch(error => dispatch(removeContactError(error.message)));
 };
 
