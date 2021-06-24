@@ -7,7 +7,7 @@ import './UpdateContact.scss';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import MyDb from '../../my-db/db-for-input';
 
-const UpdateContact = ({ modalCardID }) => {
+const UpdateContact = ({ modalCardID, setId }) => {
   const [contact, setContact] = useState({
     id: '',
     model: '',
@@ -21,6 +21,7 @@ const UpdateContact = ({ modalCardID }) => {
   });
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
+  // const { modalCardID } = useParams();
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const UpdateContact = ({ modalCardID }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     await dispach(phoneBookOperations.updateContact(contact));
+    setId(null);
   };
 
   //=========== ===========

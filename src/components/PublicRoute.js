@@ -4,8 +4,8 @@ import { Route, Redirect } from 'react-router-dom';
 // import { authSelectors } from '../redux/auth';
 
 /**
- * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /contacts
- * - В противном случае рендерит компонент
+ * - If the route is limited and the user is logged in, renders a redirect to/contacts
+ * - Else render the component
  */
 export default function PublicRoute({
   isAuthenticated,

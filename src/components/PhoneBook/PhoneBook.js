@@ -58,7 +58,10 @@ class PhoneBook extends Component {
 
         {modalCardID && (
           <Modal onClose={this.toggleModal}>
-            <UpdateContact modalCardID={this.state.modalCardID} />
+            <UpdateContact
+              modalCardID={this.state.modalCardID}
+              setId={this.setId}
+            />
           </Modal>
         )}
       </Container>
