@@ -1,33 +1,6 @@
 {
   "contacts": [
     {
-      "model": "CPA",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 38
-    },
-    {
-      "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 39
-    },
-    {
-      "model": "CPA",
-      "custom_cost": "1",
-      "publisher": "publisher1",
-      "country": "Mexico",
-      "currency": "USD",
-      "currency_symbol": "＄",
-      "id": 40
-    },
-    {
       "model": "RS",
       "custom_cost": "2.30",
       "publisher": "publisher2",
@@ -35,6 +8,15 @@
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 41
+    },
+    {
+      "model": "CPA",
+      "custom_cost": "1",
+      "publisher": "publisher1",
+      "country": "India",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 42
     }
   ]
 }

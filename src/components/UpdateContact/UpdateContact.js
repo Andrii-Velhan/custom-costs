@@ -32,29 +32,17 @@ const UpdateContact = ({ modalCardID }) => {
     if (loading) return;
     if (items.length > 0) {
       const foundContact = items.find(({ id }) => id === modalCardID);
-      // console.log(modalCardID);
-      // if (!foundContact) {
-      //   history.push(paths.CONTACTS);
-      // }
       setContact(foundContact);
     }
   }, [modalCardID, items, loading]);
 
   const handleChange = (selectedOption, { name }) => {
     setContact(prev => ({ ...prev, [name]: selectedOption.value }));
-    // if ([name] === publisher && publisher.pucurrency === 'USD') {
-    //   setContact({ currency_symbol: '\uFF04' });
-    // }
-    // if (currency === 'EUR') {
-    //   this.setState({ currency_symbol: '\u20AC' });
-    // }
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await dispach(phoneBookOperations.updateContact(modalCardID));
-    // console.log(contact);
-    // history.push(paths.CONTACTS);
+    await dispach(phoneBookOperations.updateContact(contact));
   };
 
   //=========== ===========
@@ -72,7 +60,7 @@ const UpdateContact = ({ modalCardID }) => {
   //     });
   //   };
   // console.log(items);
-  console.log(contact);
+  // console.log(contact);
   return (
     <Fragment>
       {/* <Notification message={message} /> */}

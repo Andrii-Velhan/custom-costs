@@ -40,26 +40,28 @@ const fetchContacts = () => async dispatch => {
   }
 };
 
-// const updateContact = contactId => async dispatch => {
-//   console.log(contactId);
-//   dispatch(updateContactRequest());
-
-//   try {
-//     const { data } = await axios.patch(`/contacts/${contactId}`);
-//     dispatch(updateContactSuccsess(contactId));
-//   } catch (error) {
-//     dispatch(updateContactError(error.message));
-//   }
-// };
-
-const updateContact = contactId => dispatch => {
+const updateContact = contact => async dispatch => {
+  console.log(contact);
   dispatch(updateContactRequest());
 
-  axios
-    .patch(`/contacts/${contactId}`)
-    .then(contact => dispatch(updateContactSuccsess(contact)))
-    .catch(error => dispatch(updateContactError(error.message)));
+  try {
+    const { data } = await axios.patch(`/contacts/${contact.id}`);
+    console.log(contact.id);
+    dispatch(updateContactSuccsess(data));
+    console.log(data);
+  } catch (error) {
+    dispatch(updateContactError(error.message));
+  }
 };
+
+// const updateContact = contactId => dispatch => {
+//   dispatch(updateContactRequest());
+
+//   axios
+//     .patch(`/contacts/${contactId}`)
+//     .then(contact => dispatch(updateContactSuccsess(contact)))
+//     .catch(error => dispatch(updateContactError(error.message)));
+// };
 
 // const updateContact = contact => async dispatch => {
 //   dispatch(updateContactRequest());

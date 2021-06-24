@@ -21,7 +21,7 @@ const initialState = {
   filter: '',
   error: '',
   loading: false,
-  modalCardID: 19,
+  // modalCardID: null,
   // item: {},
   // showModal: false,
 };
@@ -31,9 +31,17 @@ const items = createReducer(initialState.items, {
   [addContactSuccess]: (state, { payload }) => [payload, ...state],
   [removeContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+  // [updateContactSuccsess]: (state, { payload }) => [payload, ...state],
   [updateContactSuccsess]: (state, { payload }) => {
-    const index = state.find(({ id }) => id === payload.id);
+    // var temp = state.map(function (item) {
+    //   return item.id === payload.id ? payload : item;
+    // });
+    // return { ...state, data: temp };
+    const index = state.findIndex(el => el.id === payload.id);
     const contacts = [...state];
+    console.log(index);
+    console.log(payload);
+
     contacts[index] = {
       id: payload.id,
       model: payload.model,
@@ -44,12 +52,32 @@ const items = createReducer(initialState.items, {
       currency_symbol: payload.currency_symbol,
     };
 
+    // let result = [contacts, ...state];
     return contacts;
   },
 });
 
 // const updateContact = createReducer(initialState.items, {
-//   [updateContactSuccsess]: (_, { payload }) => payload,
+//   // [updateContactSuccsess]: (_, { payload }) => payload,
+//   // [updateContactSuccsess]: (state, { payload }) => [payload, ...state],
+//   // [updateContactSuccsess]: (state, { payload }) => [state, ...payload],
+//   // [updateContactSuccsess]: (state, { payload }) => {
+//   //   const index = state.findIndex(el => el.id === payload.id);
+//   //   const contacts = [...state];
+//   //   console.log(index);
+//   //   console.log(payload);
+//   //   contacts[index] = {
+//   //     id: payload.id,
+//   //     model: payload.model,
+//   //     custom_cost: payload.custom_cost,
+//   //     publisher: payload.publisher,
+//   //     country: payload.country,
+//   //     currency: payload.currency,
+//   //     currency_symbol: payload.currency_symbol,
+//   //   };
+
+//   //   return contacts;
+//   // },
 // });
 
 // const showModal = createReducer(initialState.showModal, {
