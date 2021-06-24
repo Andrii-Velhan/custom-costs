@@ -10,7 +10,7 @@ import MyDb from '../../my-db/db-for-input';
 const INITIAL_STATE = {
   data: MyDb,
   model: 'CPA',
-  custom_cost: '1',
+  custom_cost: '',
   publisher: 'Any',
   country: 'Any',
   code: '',
@@ -62,24 +62,16 @@ class ContactForm extends Component {
   _onChangeCountry({ value, code }) {
     let custom_costs = this.state.data.custom_costs;
     this.setState({ country: value });
+    this.setState({ custom_cost: 1 });
     console.log(value, code);
+
     if (
       custom_costs
         .filter(item => code.includes(item.country))
         .map(({ value }) => this.setState({ custom_cost: value }))
     ) {
     }
-    // else {
-    //   this.setState({ custom_cost: 1 });
-    // }
   }
-
-  setMessage = note => {
-    this.setState({ message: note });
-    setTimeout(() => {
-      this.setState({ message: null });
-    }, 2500);
-  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -107,14 +99,6 @@ class ContactForm extends Component {
       return;
     }
 
-    // if (
-    // 	this.props.items.find(
-    // 		item => item.publisher.toLowerCase() === publisher.toLowerCase(),
-    // 	)
-    // ) {
-    // 	this.setMessage(`This publisher name "${publisher} is аlready exists!`);
-    // 	return;
-    // }
     this.props.onSubmit(
       model,
       custom_cost,
@@ -126,7 +110,6 @@ class ContactForm extends Component {
     this.setState({
       ...INITIAL_STATE,
     });
-    // console.log(this.state);
   };
 
   render() {

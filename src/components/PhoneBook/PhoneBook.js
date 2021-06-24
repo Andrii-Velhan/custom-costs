@@ -26,7 +26,7 @@ class PhoneBook extends Component {
     this.setState({ modalCardID: id });
   };
 
-  toggleModal = id => {
+  toggleModal = () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
@@ -79,7 +79,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchContacts: () => dispatch(phoneBookOperations.fetchContacts()),
-  // updateContact: () => dispatch(phoneBookOperations.updateContact()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);

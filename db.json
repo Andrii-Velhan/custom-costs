@@ -4,19 +4,19 @@
       "model": "CPC",
       "custom_cost": "2.30",
       "publisher": "publisher2",
-      "country": "Bhutan",
+      "country": "Spain",
       "currency": "EUR",
       "currency_symbol": "€",
-      "id": 41
+      "id": 42
     },
     {
-      "model": "CPC",
-      "custom_cost": "1",
+      "model": "RS",
+      "custom_cost": "2.30",
       "publisher": "publisher1",
       "country": "Spain",
       "currency": "USD",
       "currency_symbol": "＄",
-      "id": 42
+      "id": 43
     }
   ]
 }

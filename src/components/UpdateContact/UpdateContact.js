@@ -1,5 +1,4 @@
 import { React, Fragment, useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import './UpdateContact.scss';
@@ -17,11 +16,10 @@ const UpdateContact = ({ modalCardID, setId }) => {
     code: '',
     currency: '',
     currency_symbol: '',
-    message: null,
   });
+  // const [message, setMessage] = useState(null);
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
-  // const { modalCardID } = useParams();
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -40,28 +38,40 @@ const UpdateContact = ({ modalCardID, setId }) => {
     setContact(prev => ({ ...prev, [name]: selectedOption.value }));
   };
 
+  const _onChangePublisher = ({ value, currency }) => {
+    setContact(prev => ({ ...prev, publisher: value }));
+    setContact(prev => ({ ...prev, currency: currency }));
+
+    console.log(value, currency);
+    if (currency === 'USD') {
+      setContact(prev => ({ ...prev, currency_symbol: '\uFF04' }));
+    }
+    if (currency === 'EUR') {
+      setContact(prev => ({ ...prev, currency_symbol: '\u20AC' }));
+    }
+  };
+
+  const _onChangeCountry = ({ value, code }) => {
+    let custom_costs = MyDb.custom_costs;
+    setContact(prev => ({ ...prev, country: value }));
+    setContact(prev => ({ ...prev, custom_cost: 1 }));
+    console.log(value, code);
+    if (
+      custom_costs
+        .filter(item => code.includes(item.country))
+        .map(({ value }) =>
+          setContact(prev => ({ ...prev, custom_cost: value })),
+        )
+    ) {
+    }
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
     await dispach(phoneBookOperations.updateContact(contact));
     setId(null);
   };
 
-  //=========== ===========
-
-  // 		this.props.onSubmit(
-  //       model,
-  //       custom_cost,
-  //       publisher,
-  //       country,
-  //       currency,
-  //       currency_symbol,
-  //     );
-  //     this.setState({
-  //       ...INITIAL_STATE,
-  //     });
-  //   };
-  // console.log(items);
-  // console.log(contact);
   return (
     <Fragment>
       {/* <Notification message={message} /> */}
@@ -88,11 +98,11 @@ const UpdateContact = ({ modalCardID, setId }) => {
             key="model"
             className="ContactForm__input custom-select"
             id="model"
-            // onChange={this._onChangeModel.bind(this)}
+            // onChange={_onChangeModel.bind(this)}
             onChange={handleChange}
-            // onSelect={this.handleChange}
+            // onSelect={handleChange}
             // onSelect="bindDropDowns()"
-            // options={this.myOptions}
+            // options={myOptions}
             options={MyDb.cost_models.map(({ key, value }) => ({
               label: value,
               value: key,
@@ -115,7 +125,7 @@ const UpdateContact = ({ modalCardID, setId }) => {
             placeholder={contact.custom_cost}
             className="ContactForm__input custom-select"
             id="custom_cost"
-            // onChange={this._onChangeCustomCost.bind(this)}
+            // onChange={_onChangeCustomCost.bind(this)}
             // options={data.custom_costs.map(({ value }) => (
             // 	{label : value, value : value })
             // )}
@@ -140,9 +150,9 @@ const UpdateContact = ({ modalCardID, setId }) => {
             placeholder={contact.publisher}
             className="ContactForm__input custom-select"
             id="publisher"
-            onChange={handleChange}
-            // onChange={this._onChangePublisher.bind(this)}
-            options={MyDb.publishers_list.map(({ id, name, currency }) => ({
+            onChange={_onChangePublisher}
+            // onChange={_onChangePublisher.bind(this)}
+            options={MyDb.publishers_list.map(({ name, currency }) => ({
               label: name,
               value: name,
               currency: currency,
@@ -164,8 +174,8 @@ const UpdateContact = ({ modalCardID, setId }) => {
             placeholder={contact.country}
             className="ContactForm__input custom-select"
             id="country"
-            onChange={handleChange}
-            // onChange={this._onChangeCountry.bind(this)}
+            onChange={_onChangeCountry}
+            // onChange={_onChangeCountry.bind(this)}
             options={MyDb.countries.map(({ code, name }) => ({
               code: code,
               label: name,
@@ -177,30 +187,5 @@ const UpdateContact = ({ modalCardID, setId }) => {
     </Fragment>
   );
 };
-
-// const mapStateToProps = state => ({
-//   items: phoneBookSelectors.getAllItems(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   onSubmit: (
-//     model,
-//     custom_cost,
-//     publisher,
-//     country,
-//     currency,
-//     currency_symbol,
-//   ) =>
-//     dispatch(
-//       phoneBookOperations.addContact({
-//         model,
-//         custom_cost,
-//         publisher,
-//         country,
-//         currency,
-//         currency_symbol,
-//       }),
-//     ),
-// });
 
 export default UpdateContact;
