@@ -1,10 +1,10 @@
 {
   "contacts": [
     {
-      "model": "CPA",
+      "model": "CPC",
       "custom_cost": "2.30",
-      "publisher": "publisher1",
-      "country": "Afghanistan",
+      "publisher": "publisher2",
+      "country": "Albania",
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 41
@@ -13,7 +13,7 @@
       "model": "CPA",
       "custom_cost": "1",
       "publisher": "publisher1",
-      "country": "India",
+      "country": "Algeria",
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 42

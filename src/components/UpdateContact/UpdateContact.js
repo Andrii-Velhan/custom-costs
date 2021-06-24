@@ -21,7 +21,6 @@ const UpdateContact = ({ modalCardID }) => {
   });
   const loading = useSelector(phoneBookSelectors.getLoading);
   const items = useSelector(phoneBookSelectors.getAllItems);
-  // const modalCardID = useParams();
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -42,7 +41,6 @@ const UpdateContact = ({ modalCardID }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(contact);
     await dispach(phoneBookOperations.updateContact(contact));
   };
 

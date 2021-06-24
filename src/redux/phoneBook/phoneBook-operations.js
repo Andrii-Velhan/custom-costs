@@ -41,38 +41,15 @@ const fetchContacts = () => async dispatch => {
 };
 
 const updateContact = contact => async dispatch => {
-  console.log(contact);
   dispatch(updateContactRequest());
 
   try {
     const { data } = await axios.patch(`/contacts/${contact.id}`, contact);
-    console.log(contact.id);
     dispatch(updateContactSuccsess(data));
-    console.log(data);
   } catch (error) {
     dispatch(updateContactError(error.message));
   }
 };
-
-// const updateContact = contactId => dispatch => {
-//   dispatch(updateContactRequest());
-
-//   axios
-//     .patch(`/contacts/${contactId}`)
-//     .then(contact => dispatch(updateContactSuccsess(contact)))
-//     .catch(error => dispatch(updateContactError(error.message)));
-// };
-
-// const updateContact = contact => async dispatch => {
-//   dispatch(updateContactRequest());
-
-//   try {
-//     await axios.patch(contact);
-//     dispatch(updateContactSuccsess(contact));
-//   } catch (error) {
-//     dispatch(updateContactError(error.message));
-//   }
-// };
 
 const addContact =
   ({ model, custom_cost, publisher, country, currency, currency_symbol }) =>
