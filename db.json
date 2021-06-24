@@ -1,10 +1,10 @@
 {
   "contacts": [
     {
-      "model": "RS",
+      "model": "CPA",
       "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
+      "publisher": "publisher1",
+      "country": "Afghanistan",
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 41

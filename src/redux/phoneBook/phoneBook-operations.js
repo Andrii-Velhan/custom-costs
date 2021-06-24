@@ -45,7 +45,7 @@ const updateContact = contact => async dispatch => {
   dispatch(updateContactRequest());
 
   try {
-    const { data } = await axios.patch(`/contacts/${contact.id}`);
+    const { data } = await axios.patch(`/contacts/${contact.id}`, contact);
     console.log(contact.id);
     dispatch(updateContactSuccsess(data));
     console.log(data);

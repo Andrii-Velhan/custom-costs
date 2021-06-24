@@ -42,6 +42,7 @@ const UpdateContact = ({ modalCardID }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(contact);
     await dispach(phoneBookOperations.updateContact(contact));
   };
 
