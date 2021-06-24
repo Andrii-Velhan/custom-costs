@@ -24,7 +24,6 @@ class PhoneBook extends Component {
 
   setId = id => {
     this.setState({ modalCardID: id });
-    console.log(id);
   };
 
   toggleModal = id => {
@@ -57,7 +56,7 @@ class PhoneBook extends Component {
         <ContactList onChangeContact={this.setId} />
 
         {modalCardID && (
-          <Modal onClose={this.toggleModal}>
+          <Modal onClose={this.setId}>
             <UpdateContact
               modalCardID={this.state.modalCardID}
               setId={this.setId}

@@ -31,8 +31,6 @@ const items = createReducer(initialState.items, {
   [updateContactSuccsess]: (state, { payload }) => {
     const index = state.findIndex(el => el.id === payload.id);
     const contacts = [...state];
-    console.log(index);
-    console.log(payload);
 
     contacts[index] = {
       id: payload.id,

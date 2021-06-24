@@ -4,16 +4,16 @@
       "model": "CPC",
       "custom_cost": "2.30",
       "publisher": "publisher2",
-      "country": "Belgium",
+      "country": "Bhutan",
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 41
     },
     {
-      "model": "RS",
+      "model": "CPC",
       "custom_cost": "1",
-      "publisher": "publisher2",
-      "country": "Bahrain",
+      "publisher": "publisher1",
+      "country": "Spain",
       "currency": "USD",
       "currency_symbol": "＄",
       "id": 42
