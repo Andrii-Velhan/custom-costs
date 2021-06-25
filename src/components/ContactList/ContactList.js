@@ -54,7 +54,7 @@ class ContactList extends Component {
                   <span className="List__data">{publisher}</span>
                 </p>
 
-                {this.state.elementID && (
+                {this.state.elementID === +id && (
                   <div className="ContactList__name">
                     <div className="Country_box">
                       <span className="ContactList__flag">
