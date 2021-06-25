@@ -3,10 +3,10 @@
     {
       "model": "CPC",
       "custom_cost": 1,
-      "publisher": "publisher1",
+      "publisher": "publisher2",
       "country": "Brazil",
-      "currency": "USD",
-      "currency_symbol": "＄",
+      "currency": "EUR",
+      "currency_symbol": "€",
       "id": 44
     },
     {
@@ -17,6 +17,15 @@
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 45
+    },
+    {
+      "model": "CPC",
+      "custom_cost": 1,
+      "publisher": "publisher2",
+      "country": "Cameroon",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 46
     }
   ]
 }

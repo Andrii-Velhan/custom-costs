@@ -5,24 +5,14 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import { IconButton } from '@material-ui/core';
-// import { IconButton } from '../IconButton';
-import {
-  Edit,
-  HighlightOff,
-  ExpandMore,
-  // ExpandLessIcon,
-} from '@material-ui/icons';
+import { Edit, HighlightOff, ExpandMore } from '@material-ui/icons';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-// const MAX_CONTACT_LIST_ELEMENTS = 3;
 class ContactList extends Component {
   state = {
-    isOpen: false,
     elementID: null,
   };
 
   setId = e => {
-    console.log(e.currentTarget.id);
-    // this.setState({ isOpen: !this.state.isOpen });
     this.state.elementID === e.currentTarget.id
       ? this.setState({ elementID: null })
       : this.setState({ elementID: e.currentTarget.id });
@@ -54,7 +44,7 @@ class ContactList extends Component {
                   <span className="List__data">{publisher}</span>
                 </p>
 
-                {this.state.elementID === +id && (
+                {this.state.elementID == +id && (
                   <div className="ContactList__name">
                     <div className="Country_box">
                       <span className="ContactList__flag">
@@ -85,7 +75,7 @@ class ContactList extends Component {
                     onClick={this.setId}
                     aria-label="Show more"
                   >
-                    {this.state.elementID ? (
+                    {this.state.elementID == id ? (
                       <ExpandLessIcon fontSize="small" />
                     ) : (
                       <ExpandMore fontSize="small" />
