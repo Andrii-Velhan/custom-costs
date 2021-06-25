@@ -2,6 +2,8 @@ import { React, Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import './UpdateContact.scss';
+import SaveIcon from '@material-ui/icons/Save';
+import { Button } from '@material-ui/core';
 // import Notification from '../Notification';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
 import MyDb from '../../my-db/db-for-input';
@@ -78,9 +80,15 @@ const UpdateContact = ({ modalCardID, setId }) => {
       <form className="ContactForm" onSubmit={handleSubmit}>
         <div className="ContactForm__header">
           <h1 className="ContactForm__Title">Custom Cost: id_{modalCardID}</h1>
-          <button type="submit" className="ContactForm__button">
-            Save
-          </button>
+          <Button
+            type="submit"
+            variant="contained"
+            color="default"
+            onSubmit={() => {}}
+            className="ContactForm__button"
+          >
+            <span>Save</span> <SaveIcon fontSize="large" />
+          </Button>
         </div>
 
         <div className="ContactForm__inputBox">
@@ -118,7 +126,6 @@ const UpdateContact = ({ modalCardID, setId }) => {
             placeholder={contact.custom_cost}
             className="ContactForm__input custom-select"
             id="custom_cost"
-            
           />
           <span className="currency_icon" value="d">
             {contact.currency_symbol}
