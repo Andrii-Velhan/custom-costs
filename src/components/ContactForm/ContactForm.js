@@ -140,9 +140,6 @@ class ContactForm extends Component {
               value={this.state.model}
               name="model"
               isSearchable
-              // autoFocus
-              // defaultInputValue={this.state.model}
-              // defaultValue={this.state.model}
               placeholder={this.state.model}
               key="model"
               className="ContactForm__input custom-select"
@@ -161,19 +158,12 @@ class ContactForm extends Component {
             </label>
 
             <Select
-              // inputValue={this.state.custom_cost}
               name="custom_cost"
-              // isSearchable
               defaultValue=""
               defaultInputValue=""
-              // isDisabled
               placeholder={this.state.custom_cost}
               className="ContactForm__input custom-select"
               id="custom_cost"
-              // onChange={this._onChangeCustomCost.bind(this)}
-              // options={data.custom_costs.map(({ value }) => (
-              // 	{label : value, value : value })
-              // )}
             />
             <span className="currency_icon" value="d">
               {this.state.currency_symbol}
@@ -190,10 +180,7 @@ class ContactForm extends Component {
               name="publisher"
               autoFocus
               isSearchable
-              // defaultValue={this.state.publisher}
-              // defaultInputValue={this.state.publisher}
               placeholder={this.state.publisher}
-              // placeholder="Any"
               className="ContactForm__input custom-select"
               id="publisher"
               onChange={this._onChangePublisher.bind(this)}
@@ -215,9 +202,7 @@ class ContactForm extends Component {
               value={this.state.country}
               name="country"
               isSearchable
-              // defaultInputValue={this.state.country}
               placeholder={this.state.country}
-              // placeholder="Any"
               className="ContactForm__input custom-select"
               id="country"
               onChange={this._onChangeCountry.bind(this)}

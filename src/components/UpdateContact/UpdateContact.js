@@ -91,18 +91,13 @@ const UpdateContact = ({ modalCardID, setId }) => {
             value={contact.model}
             name="model"
             isSearchable
-            // autoFocus
             defaultInputValue={contact.model}
             defaultValue={contact.model}
             placeholder={contact.model}
             key="model"
             className="ContactForm__input custom-select"
             id="model"
-            // onChange={_onChangeModel.bind(this)}
             onChange={handleChange}
-            // onSelect={handleChange}
-            // onSelect="bindDropDowns()"
-            // options={myOptions}
             options={MyDb.cost_models.map(({ key, value }) => ({
               label: value,
               value: key,
@@ -118,17 +113,12 @@ const UpdateContact = ({ modalCardID, setId }) => {
           <Select
             inputValue={contact.custom_cost}
             name="custom_cost"
-            // isSearchable
             defaultValue={contact.custom_cost}
             defaultInputValue={contact.custom_cost}
-            // isDisabled
             placeholder={contact.custom_cost}
             className="ContactForm__input custom-select"
             id="custom_cost"
-            // onChange={_onChangeCustomCost.bind(this)}
-            // options={data.custom_costs.map(({ value }) => (
-            // 	{label : value, value : value })
-            // )}
+            
           />
           <span className="currency_icon" value="d">
             {contact.currency_symbol}
@@ -141,7 +131,6 @@ const UpdateContact = ({ modalCardID, setId }) => {
           </label>
 
           <Select
-            // value={contact.publisher}
             name="publisher"
             autoFocus
             isSearchable
@@ -151,7 +140,6 @@ const UpdateContact = ({ modalCardID, setId }) => {
             className="ContactForm__input custom-select"
             id="publisher"
             onChange={_onChangePublisher}
-            // onChange={_onChangePublisher.bind(this)}
             options={MyDb.publishers_list.map(({ name, currency }) => ({
               label: name,
               value: name,
@@ -166,7 +154,6 @@ const UpdateContact = ({ modalCardID, setId }) => {
           </label>
 
           <Select
-            // value={contact.country}
             name="country"
             isSearchable
             defaultValue={contact.country}
@@ -175,7 +162,6 @@ const UpdateContact = ({ modalCardID, setId }) => {
             className="ContactForm__input custom-select"
             id="country"
             onChange={_onChangeCountry}
-            // onChange={_onChangeCountry.bind(this)}
             options={MyDb.countries.map(({ code, name }) => ({
               code: code,
               label: name,

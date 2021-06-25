@@ -5,20 +5,6 @@ const getLoading = state => state.phoneBook.loading;
 const getFilter = state => state.phoneBook.filter;
 const getError = state => state.phoneBook.error;
 
-// without memoisation:
-// const getVisibleContacts = state => {
-//   const items = getAllItems(state);
-//   const filter = getFilter(state);
-//   const normalizedFilter = filter.toLowerCase();
-
-//   let list = items.filter(({ name }) =>
-//     name.toLowerCase().includes(normalizedFilter),
-//   );
-
-//   return list;
-// };
-
-// with memoisation:
 const getVisibleContacts = createSelector(
   [getAllItems, getFilter],
   (items, fiterValue) => {

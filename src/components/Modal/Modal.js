@@ -5,7 +5,6 @@ import './Modal.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ onClose, children }) {
-  // console.log(modalCardID);
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -18,7 +17,7 @@ export default function Modal({ onClose, children }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]); // ! useMemo on parrent Component
+  }, [onClose]);
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {

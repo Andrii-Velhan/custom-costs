@@ -4,8 +4,8 @@ import './PhoneBook.scss';
 import Container from '../Container';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
-import { ReactComponent as AddIcon } from '../../icons/add.svg';
-import IconButton from '../IconButton';
+import { IconButton } from '@material-ui/core';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ContactList from '../ContactList';
 import ContactForm from '../ContactForm';
 import Modal from '../Modal';
@@ -39,7 +39,7 @@ class PhoneBook extends Component {
         <div className="PhoneBookPage__header">
           <h1 className="Title">Custom</h1>
           <IconButton onClick={this.toggleModal} aria-label="Add custom cost">
-            <AddIcon width="30" height="30" fill="#fff" />
+            <AddCircleIcon fontSize="large" />
           </IconButton>
         </div>
 
@@ -49,9 +49,9 @@ class PhoneBook extends Component {
           </Modal>
         )}
 
-        <Filter />
-
         {this.props.isLoadingContacts && <Spinner />}
+
+        <Filter />
 
         <ContactList onChangeContact={this.setId} />
 

@@ -65,7 +65,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // flex-direction: row;
 }
 
 .ContactList__flag {
@@ -81,7 +80,6 @@
 }
 
 .Button_box {
-  // display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -92,8 +90,5 @@
 }
 
 .ContactList__button {
-  /* margin-left: auto; */
-  // width: 14px;
-  // height: 14px;
   border-radius: 50%;
 }

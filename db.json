@@ -1,15 +1,6 @@
 {
   "contacts": [
     {
-      "model": "CPC",
-      "custom_cost": 1,
-      "publisher": "publisher2",
-      "country": "Brazil",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 44
-    },
-    {
       "model": "RS",
       "custom_cost": "2.30",
       "publisher": "publisher3",
@@ -22,7 +13,7 @@
       "model": "CPC",
       "custom_cost": 1,
       "publisher": "publisher2",
-      "country": "Cameroon",
+      "country": "Estonia",
       "currency": "EUR",
       "currency_symbol": "€",
       "id": 46

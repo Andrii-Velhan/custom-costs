@@ -44,7 +44,7 @@ class ContactList extends Component {
                   <span className="List__data">{publisher}</span>
                 </p>
 
-                {this.state.elementID == +id && (
+                {+this.state.elementID === id && (
                   <div className="ContactList__name">
                     <div className="Country_box">
                       <span className="ContactList__flag">
@@ -57,10 +57,10 @@ class ContactList extends Component {
                     </div>
                   </div>
                 )}
+
                 <div className="Button_box">
                   <IconButton
                     size="small"
-                    className="ContactList__button"
                     onClick={() => this.props.onRemoveContact(id)}
                     aria-label="Remove Contact"
                   >
@@ -71,11 +71,10 @@ class ContactList extends Component {
                     id={id}
                     disableFocusRipple
                     size="small"
-                    className="ContactList__button"
                     onClick={this.setId}
-                    aria-label="Show more"
+                    aria-label="Show more/less"
                   >
-                    {this.state.elementID == id ? (
+                    {+this.state.elementID === id ? (
                       <ExpandLessIcon fontSize="small" />
                     ) : (
                       <ExpandMore fontSize="small" />
@@ -84,7 +83,6 @@ class ContactList extends Component {
 
                   <IconButton
                     size="small"
-                    className="ContactList__button"
                     onClick={() => this.props.onChangeContact(id)}
                     aria-label="Change Contact"
                   >
@@ -114,27 +112,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
-// handleClick = async () => {
-//   if (!expanded) {
-//     try {
-//       dispatch(setLoading(true));
-//       const result = fetchCard();
-//       dispatch(setLoading(false));
-//       if (result.data) {
-//         setCardData(resultData);
-//         setExpanded(true);
-//         dispatch(setSuccessMessage('hooray'));
-//       }
-//       if (result.message) dispatch(setErrorMessage(result.message));
-//     } catch (err) {
-//       dispatch(setErrorMessage(err.message));
-//     }
-//   } else setExpanded(false);
-// };
-
-// getRenderedItems() {
-//   if (this.state.isOpen) {
-//     return this.elements;
-//   }
-//   return this.elements.slice(0, MAX_CONTACT_LIST_ELEMENTS);
-// }
