@@ -5,6 +5,8 @@ import './ContactForm.scss';
 import Notification from '../Notification';
 import { connect } from 'react-redux';
 import { phoneBookSelectors, phoneBookOperations } from '../../redux/phoneBook';
+import SaveIcon from '@material-ui/icons/Save';
+import { Button } from '@material-ui/core';
 import MyDb from '../../my-db/db-for-input';
 
 const INITIAL_STATE = {
@@ -119,17 +121,19 @@ class ContactForm extends Component {
 
     return (
       <Fragment>
-        <Notification message={message} />
         <form className="ContactForm" onSubmit={this.handleSubmit}>
           <div className="ContactForm__header">
             <h1 className="ContactForm__Title">Custom Cost</h1>
-            <button
+            <Notification message={message} />
+            <Button
               type="submit"
+              variant="contained"
+              color="default"
               onSubmit={() => {}}
               className="ContactForm__button"
             >
-              Save
-            </button>
+              <span>Save</span> <SaveIcon fontSize="large" />
+            </Button>
           </div>
 
           <div className="ContactForm__inputBox">

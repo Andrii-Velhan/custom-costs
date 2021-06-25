@@ -31,22 +31,22 @@
   color: white;
 }
 
-.ContactForm__button {
-  cursor: pointer;
-  text-decoration: underline;
-  width: 60px;
-  height: 30px;
-  padding: 8px 15px;
-  background-color: inherit;
-  color: white;
-  border: none;
-  border-radius: 3px;
+// .ContactForm__button {
+//   cursor: pointer;
+//   text-decoration: underline;
+//   width: 60px;
+//   height: 30px;
+//   padding: 8px 15px;
+//   background-color: inherit;
+//   color: white;
+//   border: none;
+//   border-radius: 3px;
 
-  &:focus,
-  &:hover {
-    background-color: $blue-accent;
-  }
-}
+//   &:focus,
+//   &:hover {
+//     background-color: $blue-accent;
+//   }
+// }
 
 .Label {
   padding-bottom: 8px;

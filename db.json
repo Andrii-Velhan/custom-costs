@@ -2,21 +2,30 @@
   "contacts": [
     {
       "model": "RS",
+      "custom_cost": 1,
+      "publisher": "publisher2",
+      "country": "Albania",
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 47
+    },
+    {
+      "model": "RS",
       "custom_cost": "2.30",
-      "publisher": "publisher3",
+      "publisher": "publisher2",
       "country": "Spain",
       "currency": "EUR",
       "currency_symbol": "€",
-      "id": 45
+      "id": 48
     },
     {
-      "model": "CPC",
+      "model": "CPA",
       "custom_cost": 1,
-      "publisher": "publisher2",
-      "country": "Estonia",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 46
+      "publisher": "publisher1",
+      "country": "ÅlandIslands",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 49
     }
   ]
 }
