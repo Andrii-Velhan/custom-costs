@@ -2,21 +2,21 @@
   "contacts": [
     {
       "model": "CPC",
-      "custom_cost": "2.30",
-      "publisher": "publisher2",
-      "country": "Spain",
-      "currency": "EUR",
-      "currency_symbol": "€",
-      "id": 42
+      "custom_cost": 1,
+      "publisher": "publisher1",
+      "country": "Brazil",
+      "currency": "USD",
+      "currency_symbol": "＄",
+      "id": 44
     },
     {
       "model": "RS",
       "custom_cost": "2.30",
-      "publisher": "publisher1",
+      "publisher": "publisher3",
       "country": "Spain",
-      "currency": "USD",
-      "currency_symbol": "＄",
-      "id": 43
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "id": 45
     }
   ]
 }
