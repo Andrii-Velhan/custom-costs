@@ -43,7 +43,7 @@ class PhoneBook extends Component {
             onClick={this.toggleModal}
             aria-label="Add custom cost"
           >
-            <span>Add </span> <AddCircleIcon fontSize="large" />
+            Add <AddCircleIcon fontSize="large" />
           </Button>
         </div>
 

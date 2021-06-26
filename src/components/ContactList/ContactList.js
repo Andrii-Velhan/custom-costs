@@ -32,13 +32,13 @@ class ContactList extends Component {
                   <span>Model</span>
                   <span className="List__data">{model}</span>
                 </p>
-                <p className="ContactList__name">
+                <div className="ContactList__name">
                   <span>Custom Cost</span>
                   <div className="List__data">
                     <span>{custom_cost}</span>
                     <span>{currency_symbol}</span>
                   </div>
-                </p>
+                </div>
                 <p className="ContactList__name">
                   <span>Publisher</span>
                   <span className="List__data">{publisher}</span>
@@ -64,7 +64,7 @@ class ContactList extends Component {
                     onClick={() => this.props.onRemoveContact(id)}
                     aria-label="Remove Contact"
                   >
-                    <HighlightOff fontSize="small" fill="#fff" />
+                    <HighlightOff fontSize="small" />
                   </IconButton>
 
                   <IconButton
@@ -86,7 +86,7 @@ class ContactList extends Component {
                     onClick={() => this.props.onChangeContact(id)}
                     aria-label="Change Contact"
                   >
-                    <Edit fontSize="small" fill="#fff" />
+                    <Edit fontSize="small" />
                   </IconButton>
                 </div>
               </li>

@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Suspense fallback={Spinner}>
+        <Suspense fallback={<Spinner />}>
           <Switch>
             <PublicRoute path="/" redirectTo="">
               <PhoneBookPage />
