@@ -12,7 +12,7 @@
     {
       "model": "CPA",
       "custom_cost": 1,
-      "publisher": "publisher2",
+      "publisher": "publisher3",
       "country": "Canada",
       "currency": "EUR",
       "currency_symbol": "€",
@@ -21,10 +21,10 @@
     {
       "model": "CPC",
       "custom_cost": 1,
-      "publisher": "publisher3",
+      "publisher": "publisher1",
       "country": "Mexico",
-      "currency": "EUR",
-      "currency_symbol": "€",
+      "currency": "USD",
+      "currency_symbol": "＄",
       "id": 51
     }
   ]
